@@ -2,7 +2,11 @@ import React from 'react'
 
 function Forum() {
   return (
-    <div>Forum</div>
+    <div>
+      <div>Subforum</div>
+      <div>Subforum</div>
+      <div>Subforum</div>
+    </div>
   )
 }
 

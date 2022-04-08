@@ -1,3 +1,4 @@
+import '../App.css'
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import NavBar from './NavBar';
@@ -7,15 +8,15 @@ import Profile from './Profile';
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Header />
       <NavBar />
       <Switch>
-        <Route path='/forum'>
+        <Route path='/'>
           <Forum />
         </Route>
-        <Route>
-          <Profile path='profile'/>
+        <Route path='/profile'>
+          <Profile />
         </Route>
       </Switch>
       <Footer />
