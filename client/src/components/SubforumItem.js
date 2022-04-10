@@ -1,8 +1,11 @@
 import React from 'react'
 
-function SubforumItem() {
+function SubforumItem({ id, name, description }) {
   return (
-    <div>SubforumItem</div>
+    <div className="SubforumItem">
+      <p>{name}</p>
+      <p>{description}</p>
+    </div>
   )
 }
 

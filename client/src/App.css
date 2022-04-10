@@ -14,16 +14,30 @@
   border: 2px solid black;
 }
 
-.Forum {
+.Forum, .Subforum, .Post {
   padding: 10px;
   margin: 10px;
   border: 2px solid black;
 }
 
-.Subforum {
+.ForumItem {
   padding: 10px;
   margin: 10px;
   border: 2px solid red;
+}
+
+.SubforumItem {
+  text-align: left;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+}
+
+.PostItem {
+  text-align: left;
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid green;
 }
 
 .Footer {

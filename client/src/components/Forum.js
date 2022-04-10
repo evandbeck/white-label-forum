@@ -14,7 +14,7 @@ function Forum() {
 
   return (
     <div className="Forum">
-      Subforum Container
+      Forum / Subforum Container
       {displaySubforums}
     </div>
   )

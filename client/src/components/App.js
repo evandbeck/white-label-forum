@@ -6,6 +6,9 @@ import Footer from './Footer';
 import Forum from './Forum';
 import Profile from './Profile';
 
+import Subforum from './Subforum';
+import Post from './Post';
+
 function App() {
   return (
     <div className="App">
@@ -19,6 +22,8 @@ function App() {
           <Profile />
         </Route>
       </Switch>
+      <Subforum />
+      <Post />
       <Footer />
     </div>
   );

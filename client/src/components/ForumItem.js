@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Subforum({ id, name, category, description}) {
+function Subforum({ id, name, category, description }) {
 
   function getSubforums(id) {
     fetch(`/subforum/${id}`)
@@ -16,7 +16,7 @@ function Subforum({ id, name, category, description}) {
   }
 
   return (
-    <div className="Subforum" onClick={() => showSubforumsPosts(id)}>
+    <div className="ForumItem" onClick={() => showSubforumsPosts(id)}>
             <p>{name}</p>
             <p>{description}</p>
     </div>

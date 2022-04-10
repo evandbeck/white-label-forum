@@ -2,7 +2,7 @@ import React from 'react'
 
 function PostItem() {
   return (
-    <div>PostItem</div>
+    <div className="PostItem">PostItem</div>
   )
 }
 
