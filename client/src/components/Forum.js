@@ -1,11 +1,20 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import Subforum from './Subforum'
 
 function Forum() {
+  const [subforumArray, setSubforumArray] = useState([])
+
+  useEffect(() => {
+    fetch('/subforums')
+    .then(resp => resp.json())
+    .then(setSubforumArray)
+  }, [])
+
+  const displaySubforums = subforumArray.map(subforumObj => <Subforum key={subforumObj.id} {...subforumObj}/>)
+
   return (
-    <div>
-      <div>Subforum</div>
-      <div>Subforum</div>
-      <div>Subforum</div>
+    <div className="Forum">
+      {displaySubforums}
     </div>
   )
 }
