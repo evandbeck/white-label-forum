@@ -1,5 +1,5 @@
 class SubforumsController < ApplicationController
-  before_action :set_subforum, only: [:show, :update, :destroy]
+  before_action :set_subforum, only: [:show, :update, :destroy, :index]
 
   # GET /subforums
   def index
@@ -11,6 +11,13 @@ class SubforumsController < ApplicationController
   def show
     render json: @subforum
   end
+
+  # # GET /subforums
+  # def random
+  #   subforums = Subforum.all
+  #   render json: subforums
+  # end
+    
 
   # POST /subforums
   def create
@@ -40,7 +47,7 @@ class SubforumsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subforum
-      @subforum = Subforum.find(params[:id])
+      subforum = Subforum.all
     end
 
     # Only allow a list of trusted parameters through.

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import Subforum from './Subforum'
+import ForumItem from './ForumItem'
 
 function Forum() {
   const [subforumArray, setSubforumArray] = useState([])
@@ -10,10 +10,11 @@ function Forum() {
     .then(setSubforumArray)
   }, [])
 
-  const displaySubforums = subforumArray.map(subforumObj => <Subforum key={subforumObj.id} {...subforumObj}/>)
+  const displaySubforums = subforumArray.map(subforumObj => <ForumItem key={subforumObj.id} {...subforumObj}/>)
 
   return (
     <div className="Forum">
+      Subforum Container
       {displaySubforums}
     </div>
   )
