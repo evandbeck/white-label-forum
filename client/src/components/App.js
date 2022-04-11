@@ -5,7 +5,7 @@ import Header from './Header';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Profile from './Profile';
-import Create from './Create';
+import CreatePost from './CreatePost';
 import Edit from './Edit';
 
 import Subforum from './Subforum';
@@ -31,7 +31,7 @@ function App() {
           <Post />
         </Route>
         <Route path='/create'>
-          <Create postArray={postArray} setPostArray={setPostArray}/>
+          <CreatePost postArray={postArray} setPostArray={setPostArray}/>
         </Route>
         <Route path='/edit'>
           <Edit />

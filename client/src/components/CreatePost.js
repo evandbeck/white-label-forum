@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function Create({ postArray, setPostArray }) {
+function CreatePost({ postArray, setPostArray }) {
   const [postTitle, setPostTitle] = useState("")
   const [postContent, setPostContent] = useState("")
 
@@ -50,4 +50,4 @@ function Create({ postArray, setPostArray }) {
   )
 }
 
-export default Create
+export default CreatePost
