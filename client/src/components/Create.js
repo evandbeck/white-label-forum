@@ -13,7 +13,7 @@ function Create({ postArray, setPostArray }) {
           user_id: 1
       };
       
-    fetch("/posts", {
+    fetch("https://localhost3000/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

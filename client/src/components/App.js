@@ -4,9 +4,9 @@ import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import NavBar from './NavBar';
 import Footer from './Footer';
-import Forum from './Forum';
 import Profile from './Profile';
 import Create from './Create';
+import Edit from './Edit';
 
 import Subforum from './Subforum';
 import Post from './Post';
@@ -14,19 +14,27 @@ import Post from './Post';
 function App() {
   const [postArray, setPostArray] = useState([])
 
+  function onDelete(id) {
+    const deletePost = postArray.filter(postObj => postObj.id !== id)
+    setPostArray(deletePost)
+  }
+
   return (
     <div className="App">
       <Header />
       <NavBar />
       <Switch>
         <Route exact path='/'>
-          <Subforum postArray={postArray} setPostArray={setPostArray}/>
+          <Subforum postArray={postArray} setPostArray={setPostArray} onDelete={onDelete}/>
         </Route>
-        <Route path='/posts/:post_id/comments'>
+        <Route exact path='/posts/:post_id/comments'>
           <Post />
         </Route>
         <Route path='/create'>
           <Create postArray={postArray} setPostArray={setPostArray}/>
+        </Route>
+        <Route path='/edit'>
+          <Edit />
         </Route>
         <Route path='/profile'>
           <Profile />
