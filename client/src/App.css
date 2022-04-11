@@ -14,6 +14,10 @@
   border: 2px solid black;
 }
 
+.NavBarLink {
+  padding: 5px;
+}
+
 .Forum, .Subforum, .Post {
   padding: 10px;
   margin: 10px;
@@ -26,11 +30,24 @@
   border: 2px solid red;
 }
 
+.newThreadButton {
+  padding: 5px;
+  margin: 10px;
+}
+
 .SubforumItem {
   text-align: left;
-  padding: 10px;
+  padding: 2px 10px;
   margin: 10px;
   border: 2px solid blue;
+}
+
+.postUsername {
+  font-weight: bold;
+}
+
+.postDescription {
+  font-size: 10px;
 }
 
 .PostItem {
@@ -42,6 +59,12 @@
 
 .Footer {
   padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+}
+
+.newContent {
+  padding: 50px;
   margin: 10px;
   border: 2px solid black;
 }

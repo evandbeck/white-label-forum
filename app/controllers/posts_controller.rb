@@ -14,13 +14,9 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
-
-    if @post.save
-      render json: @post, status: :created, location: @post
-    else
-      render json: @post.errors, status: :unprocessable_entity
-    end
+    byebug
+    post = Post.create!(post_params)
+    render json: post, status: :created
   end
 
   # PATCH/PUT /posts/1
@@ -45,6 +41,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:name, :description, :subforum_id, :user_id)
+      params.permit(:name, :description, :subforum_id, :user_id)
     end
 end

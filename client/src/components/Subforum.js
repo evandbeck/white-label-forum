@@ -1,8 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect} from 'react'
+import { Link } from 'react-router-dom';
 import SubforumItem from './SubforumItem'
 
-function Subforum() {
-  const [postArray, setPostArray] = useState([])
+function Subforum({ postArray, setPostArray }) {
+  // const [postArray, setPostArray] = useState([])
 
   useEffect(() => {
     fetch('/posts')
@@ -15,6 +16,9 @@ function Subforum() {
   return (
     <div className="Subforum">
         Subforum / Posts Container
+        <div>
+          <Link to="/create"><button className="newThreadButton">Post New Thread</button></Link>
+        </div>
         {displayPosts}
     </div>
   )

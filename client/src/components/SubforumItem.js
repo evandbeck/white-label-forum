@@ -1,10 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function SubforumItem({ id, name, description }) {
   return (
     <div className="SubforumItem">
-      <p>{name}</p>
-      <p>{description}</p>
+      <Link to={`/posts/${id}/comments`}><p className="postUsername">Post Title: {name}</p></Link>
+      <p className="postDescription">{description}</p>
     </div>
   )
 }

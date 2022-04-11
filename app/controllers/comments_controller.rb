@@ -3,7 +3,8 @@ class CommentsController < ApplicationController
 
   # GET /comments
   def index
-    @comments = Comment.all
+    post = Post.find(params[:post_id])
+    @comments = post.comments
 
     render json: @comments
   end
@@ -15,12 +16,12 @@ class CommentsController < ApplicationController
 
   # POST /comments
   def create
-    @comment = Comment.new(comment_params)
+    comment = Comment.new(comment_params)
 
-    if @comment.save
-      render json: @comment, status: :created, location: @comment
+    if comment.save
+      render json: comment, status: :created, location: comment
     else
-      render json: @comment.errors, status: :unprocessable_entity
+      render json: comment.errors, status: :unprocessable_entity
     end
   end
 
