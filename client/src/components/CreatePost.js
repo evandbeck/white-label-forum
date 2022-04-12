@@ -2,18 +2,18 @@ import React, { useState } from 'react'
 
 function CreatePost({ postArray, setPostArray }) {
   const [postTitle, setPostTitle] = useState("")
-  const [postContent, setPostContent] = useState("")
+  const [postDescription, setPostContent] = useState("")
 
   function submitNewPost(e) {
       e.preventDefault();
       const newPost = {
           name: postTitle,
-          description: postContent,
+          description: postDescription,
           subforum_id: 1,
           user_id: 1
       };
       
-    fetch("https://localhost3000/posts", {
+    fetch('/posts', {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -40,7 +40,7 @@ function CreatePost({ postArray, setPostArray }) {
             </div>
             <div>
                 <label>Post Content:</label>
-                <input type="text" value={postContent} onChange={(e) => setPostContent(e.target.value)} size="50"></input>
+                <input type="text" value={postDescription} onChange={(e) => setPostContent(e.target.value)} size="50"></input>
             </div>
             <div>
                 <button>Submit Post</button>

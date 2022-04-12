@@ -9,12 +9,16 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    render json: post
+    post = Post.find_by(id: params[:id])
+    if post
+      render json: post
+    else
+      render json: { error: "Post not found"}, status: :not_found
+    end
   end
 
   # POST /posts
   def create
-    byebug
     post = Post.create!(post_params)
     render json: post, status: :created
   end

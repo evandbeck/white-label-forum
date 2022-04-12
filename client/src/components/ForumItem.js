@@ -2,11 +2,11 @@ import React from 'react'
 
 function Subforum({ id, name, category, description }) {
 
-  function getSubforums(id) {
-    fetch(`/subforum/${id}`)
-    .then(resp => resp.json())
-    .then(console.log)
-  }
+  // function getSubforums(id) {
+  //   fetch(`/subforum/${id}`)
+  //   .then(resp => resp.json())
+  //   .then(console.log)
+  // }
 
   function showSubforumsPosts(id) {
     console.log(id)

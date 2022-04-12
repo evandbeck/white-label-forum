@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom';
+import EditComment from './EditComment';
 
 function PostItem({ id, content, post_id, onDelete }) {
+  const [showEditor, setShowEditor] = useState(false)
 
   function handleCommentDelete(id) {
     //Confirmation?
@@ -12,10 +14,15 @@ function PostItem({ id, content, post_id, onDelete }) {
     .then(onDelete(id))
   }
 
+  function handleShowEditor() {
+    setShowEditor(showEditor => !showEditor)
+    };
+
   return (
     <div className="PostItem">
       <p>{content}</p>
-      <Link to="/edit"><button>EDIT</button></Link>
+      <button onClick={handleShowEditor}>{showEditor ? "Close Editor" : "EDIT"}</button>
+      {showEditor ? <EditComment id={id} content={content}/> : null}
       <button onClick={() => handleCommentDelete(id)}>DELETE</button>
     </div>
   )

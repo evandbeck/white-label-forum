@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
   resources :friends, only: [:index]
-  resources :comments, only: [:create, :update, :destroy]
-  resources :posts, only: [:index, :create, :update, :destroy]
+  resources :comments, only: [:show, :create, :update, :destroy]
+  resources :posts
   resources :users, only: [:index]
   resources :subforums
 

@@ -6,7 +6,7 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 import Profile from './Profile';
 import CreatePost from './CreatePost';
-import Edit from './Edit';
+import Edit from './EditPost';
 
 import Subforum from './Subforum';
 import Post from './Post';
