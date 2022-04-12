@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function EditPost({ id, name, description}) {
+function EditPost({ id, name, description, postArray, setPostArray }) {
   const [postTitle, setPostTitle] = useState(name)
   const [postDescription, setPostDescription] = useState(description)
 
@@ -9,8 +9,6 @@ function EditPost({ id, name, description}) {
     const updatedPost = {
           name: postTitle,
           description: postDescription,
-          subforum_id: 1,
-          user_id: 1
       };
     //PATCH Request to DB
     fetch(`/posts/${id}`, {
@@ -23,6 +21,7 @@ function EditPost({ id, name, description}) {
     .then(resp => resp.json())
     .then(data => console.log(data))
     //Update State
+    .then(setPostArray)
   }
 
   return (

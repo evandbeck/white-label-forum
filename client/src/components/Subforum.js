@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import SubforumItem from './SubforumItem'
 
-function Subforum({ id, postArray, setPostArray, onDelete }) {
+function Subforum({ postArray, setPostArray, onDelete }) {
   // const [postArray, setPostArray] = useState([])
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Subforum({ id, postArray, setPostArray, onDelete }) {
     <div className="Subforum">
         Subforum / Posts Container
         <div>
-          <Link to="/create"><button className="newThreadButton">Post New Thread</button></Link>
+          <Link to="/create"><button className="newThreadButton">Create New Post</button></Link>
         </div>
         {displayPosts}
     </div>

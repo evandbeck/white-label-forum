@@ -57,6 +57,38 @@
   border: 2px solid green;
 }
 
+.Login {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.loginForm {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid red;
+  max-width: 30%;
+  display: inline-block;
+  text-align: left;
+}
+
+.Signup {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+.signupForm {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid red;
+  max-width: 30%;
+  display: inline-block;
+  text-align: left;
+}
+
 .Footer {
   padding: 10px;
   margin: 10px;

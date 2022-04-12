@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function CreatePost({ postArray, setPostArray }) {
+function CreatePost({ id, postArray, setPostArray }) {
   const [postTitle, setPostTitle] = useState("")
   const [postDescription, setPostContent] = useState("")
 
@@ -9,7 +9,7 @@ function CreatePost({ postArray, setPostArray }) {
       const newPost = {
           name: postTitle,
           description: postDescription,
-          subforum_id: 1,
+          // subforum_id: id,
           user_id: 1
       };
       
@@ -23,9 +23,10 @@ function CreatePost({ postArray, setPostArray }) {
 
         .then((response) => response.json())
         .then(console.log)
-        .then((data) => {
-            setPostArray((prev) => [...prev, data]);
-        });
+        // Update STATE
+        // .then((post) => {
+        //     setPostArray((prev) => [...prev, post]);
+        // });
     
     setPostTitle("");
     setPostContent("");

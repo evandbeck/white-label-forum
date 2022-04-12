@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditPost from './EditPost';
 
-function SubforumItem({ id, name, description, onDelete }) {
+function SubforumItem({ id, name, description, postArray, setPostArray, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
   
   function handlePostEdit() {
@@ -28,7 +28,7 @@ function SubforumItem({ id, name, description, onDelete }) {
       <Link to={`/posts/${id}/comments`}><p className="postUsername">Post Title: {name}</p></Link>
       <p className="postDescription">{description}</p>
       <button onClick={handleShowEditor}>{showEditor ? "Close Editor" : "EDIT"}</button>
-      {showEditor ? <EditPost id={id} name={name} description={description}/> : null}
+      {showEditor ? <EditPost id={id} name={name} description={description} postArray={postArray} setPostArray={setPostArray}/> : null}
       <button onClick={() => handlePostDelete(id)}>DELETE</button>
     </div>
   )

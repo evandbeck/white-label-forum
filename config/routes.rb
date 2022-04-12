@@ -3,11 +3,11 @@ Rails.application.routes.draw do
   resources :friends, only: [:index]
   resources :comments, only: [:show, :create, :update, :destroy]
   resources :posts
-  resources :users, only: [:index]
+  resources :users
   resources :subforums
 
   resources :posts do
-    resources :comments, only: [:index] 
+    resources :comments, only: [:index, :create, :update, :destroy] 
   end
 
   # Routing logic: fallback requests for React Router.

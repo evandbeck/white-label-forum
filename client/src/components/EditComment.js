@@ -1,14 +1,12 @@
 import React, { useState } from 'react'
 
-function EditComment({ id, content}) {
+function EditComment({ id, content }) {
   const [commentContent, setCommentContent] = useState(content)
 
   function updateComment(e) {
     e.preventDefault();
     const updatedComment = {
         content: commentContent,
-        post_id: 1,
-        user_id: 1
       };
   //PATCH Request to DB
   fetch(`/comments/${id}`, {

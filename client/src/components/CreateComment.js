@@ -1,17 +1,18 @@
 import React, { useState } from 'react'
 
-function CreateComment() {
+function CreateComment({ post_id, commentArray, setCommentArray }) {
   const [commentContent, setCommentContent] = useState("")
 
   function submitNewComment(e) {
       e.preventDefault();
       const newComment = {
           content: commentContent,
-          post_id: 1,
+          post_id: post_id,
+          // make post_id dynamic
           user_id: 1
       };
       
-    fetch("/posts", {
+    fetch("/comments", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -19,11 +20,12 @@ function CreateComment() {
         body: JSON.stringify(newComment),
         })
 
-        .then((response) => response.json())
-        .then(console.log)
-        .then((data) => {
-            setCommentContent((prev) => [...prev, data]);
-        });
+        .then((resp) => resp.json())
+        .then(data => console.log(data))
+        // Update STATE
+        // .then((comment) => {
+        //     setCommentArray((prev) => [...prev, comment]);
+        // });
     
     setCommentContent("");
   }
@@ -36,7 +38,7 @@ function CreateComment() {
                 <input type="text" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"></input>
             </div>
             <div>
-                <button>Submit Post</button>
+                <button>Submit Comment</button>
             </div>
         </form>
     </div>
