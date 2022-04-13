@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function EditComment({ id, content }) {
+function EditComment({ id, content, setShowEditor }) {
   const [commentContent, setCommentContent] = useState(content)
 
   function updateComment(e) {
@@ -21,8 +21,13 @@ function EditComment({ id, content }) {
   //Update State
 }
 
+function handleCancelEdit(e) {
+  e.preventDefault();
+  setShowEditor(false);
+}
+
   return (
-    <div>
+    <div className="commentEditor">
       <form onSubmit={updateComment}>
             <div>
                 <label>Post Content:</label>
@@ -30,6 +35,7 @@ function EditComment({ id, content }) {
             </div>
             <div>
                 <button>Update Comment</button>
+                <button onClick={(e) => handleCancelEdit(e)}>Cancel Edit</button>
             </div>
         </form>
     </div>

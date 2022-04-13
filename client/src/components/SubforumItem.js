@@ -5,6 +5,23 @@ import EditPost from './EditPost';
 function SubforumItem({ id, name, description, postArray, setPostArray, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
+  function handlePostEdit(updatedPost) {
+    fetch(`/posts/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedPost),
+    }).then(resp => resp.json())
+      .then(data => console.log(data))
+      // .then(updatePostObj => {
+      //   this.setState({
+      //     postArray: this.state.postArray.map(object => 
+      //       object.id === updatePostObj.id ? updatePostObj : object)
+      //   })
+      // })
+  }
+
   function handlePostDelete(id) {
     //Confirmation?
     fetch(`/posts/${id}`, {
@@ -29,7 +46,14 @@ function SubforumItem({ id, name, description, postArray, setPostArray, onDelete
 
     const displayEditPost = (
       <div>
-      <EditPost id={id} name={name} description={description} postArray={postArray} setPostArray={setPostArray} setShowEditor={setShowEditor}/>
+      <EditPost 
+        id={id} 
+        name={name} 
+        description={description} 
+        postArray={postArray} 
+        setPostArray={setPostArray} 
+        setShowEditor={setShowEditor} 
+        handlePostEdit={handlePostEdit}/>
     </div>
     )
 

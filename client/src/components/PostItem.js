@@ -18,12 +18,21 @@ function PostItem({ id, content, post_id, onDelete }) {
     setShowEditor(showEditor => !showEditor)
     };
 
-  return (
+  const displayCurrentComment = (
     <div className="PostItem">
       <p>{content}</p>
-      <button onClick={handleShowEditor}>{showEditor ? "Close Editor" : "EDIT"}</button>
-      {showEditor ? <EditComment id={id} content={content}/> : null}
+      <button onClick={handleShowEditor}>EDIT</button>
       <button onClick={() => handleCommentDelete(id)}>DELETE</button>
+    </div>
+  )
+
+  const displayEditComment = (
+    <EditComment id={id} content={content} setShowEditor={setShowEditor}/>
+  )
+
+  return (
+    <div className="comment">
+      {showEditor ? displayEditComment : displayCurrentComment}
     </div>
   )
 }

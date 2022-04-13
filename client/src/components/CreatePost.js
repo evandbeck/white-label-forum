@@ -44,7 +44,7 @@ function CreatePost({ id, postArray, setPostArray, handleNewPost }) {
             </div>
             <div>
                 <label>Post Content:</label>
-                <input type="text" value={postDescription} onChange={(e) => setPostContent(e.target.value)} size="50"></input>
+                <textarea type="text" value={postDescription} onChange={(e) => setPostContent(e.target.value)} size="50"></textarea>
             </div>
             <div>
                 <button>Submit Post</button>

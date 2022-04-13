@@ -31,7 +31,7 @@ function CreateComment({ post_id, commentArray, setCommentArray, handleNewCommen
         <form onSubmit={submitNewComment}>
             <div>
                 <label>Post Content:</label>
-                <input type="text" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"></input>
+                <textarea type="text" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"></textarea>
             </div>
             <div>
                 <button>Submit Comment</button>

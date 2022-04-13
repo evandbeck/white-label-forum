@@ -62,7 +62,14 @@
   margin: 10px;
   border: 2px solid blue;
   max-width: 40%;
-  display: inline-block;
+  text-align: left;
+}
+
+.commentEditor {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid green;
+  max-width: 40%;
   text-align: left;
 }
 
