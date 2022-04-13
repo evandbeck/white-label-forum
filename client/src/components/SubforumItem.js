@@ -18,13 +18,24 @@ function SubforumItem({ id, name, description, postArray, setPostArray, onDelete
     setShowEditor(showEditor => !showEditor)
     };
 
-  return (
-    <div className="SubforumItem">
-      <Link to={`/posts/${id}/comments`}><p className="postUsername">Post Title: {name}</p></Link>
+    const displayCurrentPost = (
+      <div className="SubforumItem">
+      <Link to={`/posts/${id}/comments`}><p className="postUsername">{name}</p></Link>
       <p className="postDescription">{description}</p>
-      <button onClick={handleShowEditor}>{showEditor ? "Close Editor" : "EDIT"}</button>
-      {showEditor ? <EditPost id={id} name={name} description={description} postArray={postArray} setPostArray={setPostArray}/> : null}
+      <button onClick={handleShowEditor}>EDIT</button>
       <button onClick={() => handlePostDelete(id)}>DELETE</button>
+    </div>
+    )
+
+    const displayEditPost = (
+      <div>
+      <EditPost id={id} name={name} description={description} postArray={postArray} setPostArray={setPostArray} setShowEditor={setShowEditor}/>
+    </div>
+    )
+
+  return (
+    <div className="post">
+      {showEditor ? displayEditPost : displayCurrentPost}
     </div>
   )
 }

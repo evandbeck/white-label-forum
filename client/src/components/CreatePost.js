@@ -28,7 +28,6 @@ function CreatePost({ id, postArray, setPostArray, handleNewPost }) {
         })
         .then((response) => response.json())
         .then(console.log)
-        // Update STATE
         
     handleNewPost(newPost);
     setPostTitle("");

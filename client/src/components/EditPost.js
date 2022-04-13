@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function EditPost({ id, name, description, postArray, setPostArray }) {
+function EditPost({ id, name, description, postArray, setPostArray, setShowEditor }) {
   const [postTitle, setPostTitle] = useState(name)
   const [postDescription, setPostDescription] = useState(description)
 
@@ -8,12 +8,13 @@ function EditPost({ id, name, description, postArray, setPostArray }) {
     e.preventDefault();
     const updatedPost = {
           name: postTitle,
-          description: postDescription,
+          description: postDescription
       };
     //PATCH Request to DB
     fetch(`/posts/${id}`, {
       method: "PATCH",
       headers: {
+        Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updatedPost),
@@ -24,8 +25,13 @@ function EditPost({ id, name, description, postArray, setPostArray }) {
     .then(setPostArray)
   }
 
+    function handleCancelEdit(e) {
+      e.preventDefault();
+      setShowEditor(false);
+    }
+
   return (
-    <div>
+    <div className="postEditor">
       <form onSubmit={updatePost}>
             <div>
                 <label>Post Title:</label>
@@ -37,6 +43,7 @@ function EditPost({ id, name, description, postArray, setPostArray }) {
             </div>
             <div>
                 <button>Update Post</button>
+                <button onClick={(e) => handleCancelEdit(e)}>Cancel Edit</button>
             </div>
         </form>
     </div>

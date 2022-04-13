@@ -57,6 +57,15 @@
   border: 2px solid green;
 }
 
+.postEditor {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid blue;
+  max-width: 40%;
+  display: inline-block;
+  text-align: left;
+}
+
 .Login {
   padding: 10px;
   margin: 10px;
