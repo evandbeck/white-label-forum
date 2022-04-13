@@ -1,8 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 
-function CreatePost({ id, postArray, setPostArray }) {
+function CreatePost({ id, postArray, setPostArray, handleNewPost }) {
   const [postTitle, setPostTitle] = useState("")
   const [postDescription, setPostContent] = useState("")
+  const [toForum, setToForum] = useState(false)
+  
+  if (toForum === true) { 
+    return <Redirect to="/"/>
+  }
 
   function submitNewPost(e) {
       e.preventDefault();
@@ -20,16 +26,14 @@ function CreatePost({ id, postArray, setPostArray }) {
         },
         body: JSON.stringify(newPost),
         })
-
         .then((response) => response.json())
         .then(console.log)
         // Update STATE
-        // .then((post) => {
-        //     setPostArray((prev) => [...prev, post]);
-        // });
-    
+        
+    handleNewPost(newPost);
     setPostTitle("");
     setPostContent("");
+    setToForum(true);
   }
 
   return (

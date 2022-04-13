@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 
-function CreateComment({ post_id, commentArray, setCommentArray }) {
+function CreateComment({ post_id, commentArray, setCommentArray, handleNewComment }) {
   const [commentContent, setCommentContent] = useState("")
 
   function submitNewComment(e) {
-      e.preventDefault();
+    e.preventDefault();
       const newComment = {
           content: commentContent,
           post_id: post_id,
-          // make post_id dynamic
           user_id: 1
       };
       
@@ -19,14 +18,11 @@ function CreateComment({ post_id, commentArray, setCommentArray }) {
         },
         body: JSON.stringify(newComment),
         })
-
         .then((resp) => resp.json())
-        .then(data => console.log(data))
+        .then(data => console.log(data));
         // Update STATE
-        // .then((comment) => {
-        //     setCommentArray((prev) => [...prev, comment]);
-        // });
-    
+        
+    handleNewComment(newComment);
     setCommentContent("");
   }
 

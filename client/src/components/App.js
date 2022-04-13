@@ -15,7 +15,10 @@ import Post from './Post';
 
 function App() {
   const [postArray, setPostArray] = useState([])
-  const [commentArray, setCommentArray] = useState([])
+
+  function handleNewPost(newPost) {
+    setPostArray((postArray) => [...postArray, newPost]);
+  }
 
   function onDelete(id) {
     const deletePost = postArray.filter(postObj => postObj.id !== id)
@@ -31,10 +34,10 @@ function App() {
           <Subforum postArray={postArray} setPostArray={setPostArray} onDelete={onDelete}/>
         </Route>
         <Route exact path='/posts/:post_id/comments'>
-          <Post commentArray={commentArray} setCommentArray={setCommentArray}/>
+          <Post />
         </Route>
         <Route path='/create'>
-          <CreatePost postArray={postArray} setPostArray={setPostArray}/>
+          <CreatePost postArray={postArray} setPostArray={setPostArray} handleNewPost={handleNewPost}/>
         </Route>
         <Route path='/edit'>
           <Edit />

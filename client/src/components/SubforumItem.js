@@ -4,11 +4,6 @@ import EditPost from './EditPost';
 
 function SubforumItem({ id, name, description, postArray, setPostArray, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
-  
-  function handlePostEdit() {
-    //PATCH DB
-    //Update State
-  }
 
   function handlePostDelete(id) {
     //Confirmation?

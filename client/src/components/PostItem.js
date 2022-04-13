@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import EditComment from './EditComment';
 
 function PostItem({ id, content, post_id, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
   function handleCommentDelete(id) {
-    //Confirmation?
+    // Confirmation?
     fetch(`/comments/${id}`, {
       method: "DELETE",
     })
