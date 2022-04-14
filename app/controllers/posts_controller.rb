@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     post = Post.find_by(id: params[:id])
     if post
       post.update(post_params)
+      render json: post
     else
       render json: @post.errors, status: :unprocessable_entity
     end

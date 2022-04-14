@@ -20,6 +20,17 @@ function App() {
     setPostArray((postArray) => [...postArray, newPost]);
   }
 
+  function handleUpdatePost(updatedPost) {
+    const updatedPosts = postArray.map((postObj) => {
+      if (postObj.id === updatedPost.id) {
+        return updatedPost;
+      } else {
+        return postObj;
+      }
+    });
+    setPostArray(updatedPosts)
+  }
+
   function onDelete(id) {
     const deletePost = postArray.filter(postObj => postObj.id !== id)
     setPostArray(deletePost)
@@ -31,7 +42,7 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path='/'>
-          <Subforum postArray={postArray} setPostArray={setPostArray} onDelete={onDelete}/>
+          <Subforum postArray={postArray} setPostArray={setPostArray} handleUpdatePost={handleUpdatePost} onDelete={onDelete}/>
         </Route>
         <Route exact path='/posts/:post_id/comments'>
           <Post />

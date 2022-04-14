@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, setState } from 'react';
 import { Link } from 'react-router-dom';
 import EditPost from './EditPost';
 
-function SubforumItem({ id, name, description, postArray, setPostArray, onDelete }) {
+function SubforumItem({ id, name, description, postArray, setPostArray, handleUpdatePost, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
   function handlePostEdit(updatedPost) {
@@ -13,13 +13,7 @@ function SubforumItem({ id, name, description, postArray, setPostArray, onDelete
       },
       body: JSON.stringify(updatedPost),
     }).then(resp => resp.json())
-      .then(data => console.log(data))
-      // .then(updatePostObj => {
-      //   this.setState({
-      //     postArray: this.state.postArray.map(object => 
-      //       object.id === updatePostObj.id ? updatePostObj : object)
-      //   })
-      // })
+      .then(updatedPost => handleUpdatePost(updatedPost))
   }
 
   function handlePostDelete(id) {

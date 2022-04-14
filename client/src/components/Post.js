@@ -15,6 +15,21 @@ function Post() {
     .then(setCommentArray)
   }, [])
 
+  function handleNewComment(newComment) {
+    setCommentArray((commentArray) => [...commentArray, newComment]);
+  };
+
+  function handleUpdateComment(updatedComment) {
+    const updatedComments = commentArray.map((commentObj) => {
+      if (commentObj.id === updatedComment.id) {
+        return updatedComment;
+      } else {
+        return commentObj;
+      }
+    });
+    setCommentArray(updatedComments)
+  }
+
   function onDelete(id) {
     const deleteComment = commentArray.filter(commentObj => commentObj.id !== id)
     setCommentArray(deleteComment)
@@ -24,11 +39,14 @@ function Post() {
     setShowEditor(showEditor => !showEditor)
     };
 
-  const displayComments = commentArray.map(commentObj => <PostItem key={commentObj.id} {...commentObj} onDelete={onDelete}/>)
-
-  function handleNewComment(newComment) {
-      setCommentArray((commentArray) => [...commentArray, newComment]);
-  };
+  const displayComments = commentArray.map(commentObj => (
+    <PostItem 
+      key={commentObj.id} 
+      {...commentObj} 
+      handleUpdateComment={handleUpdateComment} 
+      onDelete={onDelete}
+    />
+  ));
   
   return (
     <div className="Post">

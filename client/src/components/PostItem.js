@@ -2,8 +2,19 @@ import React, { useState } from 'react'
 // import { Link } from 'react-router-dom';
 import EditComment from './EditComment';
 
-function PostItem({ id, content, post_id, onDelete }) {
+function PostItem({ id, content, post_id, handleUpdateComment, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
+
+  function handleCommentEdit(updatedComment) {
+    fetch(`/comments/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedComment),
+    }).then(resp => resp.json())
+      .then(updatedComment => handleUpdateComment(updatedComment))
+  }
 
   function handleCommentDelete(id) {
     // Confirmation?
@@ -27,7 +38,7 @@ function PostItem({ id, content, post_id, onDelete }) {
   )
 
   const displayEditComment = (
-    <EditComment id={id} content={content} setShowEditor={setShowEditor}/>
+    <EditComment id={id} content={content} setShowEditor={setShowEditor} handleCommentEdit={handleCommentEdit}/>
   )
 
   return (

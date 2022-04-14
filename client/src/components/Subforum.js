@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { Link } from 'react-router-dom';
 import SubforumItem from './SubforumItem'
 
-function Subforum({ postArray, setPostArray, onDelete }) {
+function Subforum({ postArray, setPostArray, handleUpdatePost, onDelete }) {
   // const [postArray, setPostArray] = useState([])
 
   useEffect(() => {
@@ -11,7 +11,14 @@ function Subforum({ postArray, setPostArray, onDelete }) {
     .then(setPostArray)
   }, [])
 
-  const displayPosts = postArray.map(postObj => <SubforumItem key={postObj.id} {...postObj} onDelete={onDelete}/>)
+  const displayPosts = postArray.map(postObj => (
+    <SubforumItem 
+      key={postObj.id} 
+      {...postObj} 
+      handleUpdatePost={handleUpdatePost} 
+      onDelete={onDelete}
+    />
+  ));
 
   return (
     <div className="Subforum">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function EditComment({ id, content, setShowEditor }) {
+function EditComment({ id, content, setShowEditor, handleCommentEdit }) {
   const [commentContent, setCommentContent] = useState(content)
 
   function updateComment(e) {
@@ -8,23 +8,14 @@ function EditComment({ id, content, setShowEditor }) {
     const updatedComment = {
         content: commentContent,
       };
-  //PATCH Request to DB
-  fetch(`/comments/${id}`, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(updatedComment),
-  })
-    .then(resp => resp.json())
-    .then(data => console.log(data))
-  //Update State
-}
+    handleCommentEdit(updatedComment);
+    setShowEditor(false);
+  };
 
-function handleCancelEdit(e) {
-  e.preventDefault();
-  setShowEditor(false);
-}
+  function handleCancelEdit(e) {
+    e.preventDefault();
+    setShowEditor(false);
+  };
 
   return (
     <div className="commentEditor">
