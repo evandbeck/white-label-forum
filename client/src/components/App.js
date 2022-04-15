@@ -42,9 +42,11 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path='/'>
+          {/* A Subforum Component holds Select Posts, or SubforumItems */}
           <Subforum postArray={postArray} setPostArray={setPostArray} handleUpdatePost={handleUpdatePost} onDelete={onDelete}/>
         </Route>
         <Route exact path='/posts/:post_id/comments'>
+          {/* A Post Component holds Select Comments, or PostItems */}
           <Post />
         </Route>
         <Route path='/create'>

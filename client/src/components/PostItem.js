@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import { Link } from 'react-router-dom';
 import EditComment from './EditComment';
 
-function PostItem({ id, content, post_id, handleUpdateComment, onDelete }) {
+function PostItem({ id, content, handleUpdateComment, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
   function handleCommentEdit(updatedComment) {
@@ -38,7 +38,12 @@ function PostItem({ id, content, post_id, handleUpdateComment, onDelete }) {
   )
 
   const displayEditComment = (
-    <EditComment id={id} content={content} setShowEditor={setShowEditor} handleCommentEdit={handleCommentEdit}/>
+    <EditComment 
+      id={id} 
+      content={content} 
+      setShowEditor={setShowEditor} 
+      handleCommentEdit={handleCommentEdit}
+    />
   )
 
   return (

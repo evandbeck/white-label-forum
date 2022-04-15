@@ -1,4 +1,4 @@
-import React, { useState, setState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditPost from './EditPost';
 
@@ -47,7 +47,8 @@ function SubforumItem({ id, name, description, postArray, setPostArray, handleUp
         postArray={postArray} 
         setPostArray={setPostArray} 
         setShowEditor={setShowEditor} 
-        handlePostEdit={handlePostEdit}/>
+        handlePostEdit={handlePostEdit}
+      />
     </div>
     )
 
