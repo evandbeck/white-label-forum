@@ -1,15 +1,21 @@
-import React, {useEffect} from 'react'
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react'
+import { Link, useParams } from 'react-router-dom';
 import SubforumItem from './SubforumItem'
+import CreatePost from './CreatePost';
 
-function Subforum({ postArray, setPostArray, handleUpdatePost, onDelete }) {
-  // const [postArray, setPostArray] = useState([])
+function Subforum({ postArray, setPostArray, handleNewPost, handleUpdatePost, onDelete }) {
+  const [showCreatePost, setShowCreatePost] = useState(false)
+  const {subforum_id} = useParams()
 
   useEffect(() => {
-    fetch('/posts')
+    fetch(`/subforums/${subforum_id}/posts`)
     .then(resp => resp.json())
     .then(setPostArray)
   }, [])
+
+  function handleShowCreatePost() {
+    setShowCreatePost(showCreatePost => !showCreatePost)
+  };
 
   const displayPosts = postArray.map(postObj => (
     <SubforumItem 
@@ -24,7 +30,9 @@ function Subforum({ postArray, setPostArray, handleUpdatePost, onDelete }) {
     <div className="Subforum">
         Subforum / Posts Container
         <div>
-          <Link to="/create"><button className="newThreadButton">Create New Post</button></Link>
+          <button className="newPostButton" onClick={handleShowCreatePost}>{showCreatePost ? "Close Editor" : "Create a New Post"}</button>
+          {showCreatePost ? <CreatePost subforum_id={subforum_id} postArray={postArray} setPostArray={setPostArray} setShowCreatePost={setShowCreatePost} handleNewPost={handleNewPost}/> : null}
+          {/* <Link to="/create"><button className="newPostButton">Create New Post</button></Link> */}
         </div>
         {displayPosts}
     </div>

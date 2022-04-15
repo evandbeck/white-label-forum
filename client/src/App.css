@@ -25,12 +25,13 @@
 }
 
 .ForumItem {
-  padding: 10px;
+  text-align: left;
+  padding: 2px 10px;
   margin: 10px;
   border: 2px solid red;
 }
 
-.newThreadButton {
+.newPostButton {
   padding: 5px;
   margin: 10px;
 }
@@ -42,11 +43,11 @@
   border: 2px solid blue;
 }
 
-.postUsername {
+.postUsername, .subforumName {
   font-weight: bold;
 }
 
-.postDescription {
+.postDescription, .subforumDescription {
   font-size: 10px;
 }
 

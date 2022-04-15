@@ -6,7 +6,7 @@ import CreateComment from './CreateComment';
 
 function Post() {
   const [commentArray, setCommentArray] = useState([])
-  const [showEditor, setShowEditor] = useState(false)
+  const [showCreateComment, setShowCreateComment] = useState(false)
   const {post_id} = useParams()
   
   useEffect(() => {
@@ -35,9 +35,9 @@ function Post() {
     setCommentArray(deleteComment)
   }
 
-  function handleShowEditor() {
-    setShowEditor(showEditor => !showEditor)
-    };
+  function handleShowCreateComment() {
+    setShowCreateComment(showCreateComment => !showCreateComment)
+  };
 
   const displayComments = commentArray.map(commentObj => (
     <PostItem 
@@ -52,8 +52,8 @@ function Post() {
     <div className="Post">
       Post / Comment Container
       {displayComments}
-      <button onClick={handleShowEditor}>{showEditor ? "Close Editor" : "Create a New Comment"}</button>
-      {showEditor ? <CreateComment post_id={post_id} commentArray={commentArray} setCommentArray={setCommentArray} handleNewComment={handleNewComment}/> : null}
+      <button onClick={handleShowCreateComment}>{showCreateComment ? "Close Editor" : "Create a New Comment"}</button>
+      {showCreateComment ? <CreateComment post_id={post_id} commentArray={commentArray} setCommentArray={setCommentArray} setShowCreateComment={setShowCreateComment} handleNewComment={handleNewComment}/> : null}
     </div>
   )
 }

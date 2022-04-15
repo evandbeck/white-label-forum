@@ -3,8 +3,10 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    posts = Post.all
-    render json: posts
+    subforum = Subforum.find(params[:subforum_id])
+    @posts = subforum.posts
+
+    render json: @posts
   end
 
   # GET /posts/1

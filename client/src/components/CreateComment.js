@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function CreateComment({ post_id, commentArray, setCommentArray, handleNewComment }) {
+function CreateComment({ post_id, commentArray, setCommentArray, setShowCreateComment, handleNewComment }) {
   const [commentContent, setCommentContent] = useState("")
 
   function submitNewComment(e) {
@@ -24,13 +24,14 @@ function CreateComment({ post_id, commentArray, setCommentArray, handleNewCommen
         
     handleNewComment(newComment);
     setCommentContent("");
+    setShowCreateComment(false);
   }
 
   return (
     <div className="newContent">
         <form onSubmit={submitNewComment}>
             <div>
-                <label>Post Content:</label>
+                <label>Comment Content:</label>
                 <textarea type="text" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"></textarea>
             </div>
             <div>

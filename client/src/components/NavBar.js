@@ -6,7 +6,6 @@ function NavBar() {
     <div className="NavBar">
         <Link className="NavBarLink" to="/">Forum</Link>
         <Link className="NavBarLink" to="/profile">Profile</Link>
-        <Link className="NavBarLink" to="/create">New Post</Link>
         <Link className="NavBarLink" to="/login">Login</Link>
         <Link className="NavBarLink" to="/signup">Signup</Link>
     </div>

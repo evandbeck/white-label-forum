@@ -5,11 +5,10 @@ import Header from './Header';
 import NavBar from './NavBar';
 import Footer from './Footer';
 import Profile from './Profile';
-import CreatePost from './CreatePost';
-import Edit from './EditPost';
 import Login from './Login';
 import Signup from './Signup';
 
+import Forum from './Forum';
 import Subforum from './Subforum';
 import Post from './Post';
 
@@ -42,18 +41,16 @@ function App() {
       <NavBar />
       <Switch>
         <Route exact path='/'>
+          {/* A Forum Component holds Select Posts, or SubforumItems */}
+          <Forum />
+        </Route>
+        <Route exact path='/subforums/:subforum_id/posts'>
           {/* A Subforum Component holds Select Posts, or SubforumItems */}
-          <Subforum postArray={postArray} setPostArray={setPostArray} handleUpdatePost={handleUpdatePost} onDelete={onDelete}/>
+          <Subforum postArray={postArray} setPostArray={setPostArray} handleNewPost={handleNewPost} handleUpdatePost={handleUpdatePost} onDelete={onDelete}/>
         </Route>
         <Route exact path='/posts/:post_id/comments'>
           {/* A Post Component holds Select Comments, or PostItems */}
           <Post />
-        </Route>
-        <Route path='/create'>
-          <CreatePost postArray={postArray} setPostArray={setPostArray} handleNewPost={handleNewPost}/>
-        </Route>
-        <Route path='/edit'>
-          <Edit />
         </Route>
         <Route path='/profile'>
           <Profile />

@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-function CreatePost({ id, postArray, setPostArray, handleNewPost }) {
+function CreatePost({ subforum_id, postArray, setPostArray, setShowCreatePost, handleNewPost }) {
   const [postTitle, setPostTitle] = useState("")
   const [postDescription, setPostContent] = useState("")
-  const [toForum, setToForum] = useState(false)
+//   const [toForum, setToForum] = useState(false)
   
-  if (toForum === true) { 
-    return <Redirect to="/"/>
-  }
+//   if (toForum === true) { 
+//     return <Redirect to="/"/>
+//   }
 
   function submitNewPost(e) {
       e.preventDefault();
       const newPost = {
           name: postTitle,
           description: postDescription,
-          // subforum_id: id,
+          subforum_id: subforum_id,
           user_id: 1
       };
       
@@ -32,7 +32,8 @@ function CreatePost({ id, postArray, setPostArray, handleNewPost }) {
     handleNewPost(newPost);
     setPostTitle("");
     setPostContent("");
-    setToForum(true);
+    setShowCreatePost(false);
+    // setToForum(true);
   }
 
   return (

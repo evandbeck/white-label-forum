@@ -1,24 +1,12 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-function Subforum({ id, name, category, description }) {
-
-  // function getSubforums(id) {
-  //   fetch(`/subforum/${id}`)
-  //   .then(resp => resp.json())
-  //   .then(console.log)
-  // }
-
-  function showSubforumsPosts(id) {
-    console.log(id)
-    // GET All Posts whose subforum_id = id
-    // getSubforums(id);
-    // Render All Posts
-  }
+function Subforum({ id, name, description }) {
 
   return (
-    <div className="ForumItem" onClick={() => showSubforumsPosts(id)}>
-            <p>{name}</p>
-            <p>{description}</p>
+    <div className="ForumItem">
+            <Link to={`/subforums/${id}/posts`}><p className="subforumName">{name}</p></Link>
+            <p className="subforumDescription">{description}</p>
     </div>
   )
 }
