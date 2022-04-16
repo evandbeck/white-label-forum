@@ -42,7 +42,7 @@ function Signup() {
             </div>
             <div>
                 <label>Password:</label>
-                <input type="text" value={password} onChange={(e) => setPassword(e.target.value)} size="50"></input>
+                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} size="50"></input>
             </div>
             <div>
                 <button>Sign-up!</button>

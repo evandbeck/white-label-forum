@@ -14,10 +14,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create, :update, :destroy] 
   end
 
-  # Routing logic: fallback requests for React Router.
-  # Leave this here to help deploy your app later!
+  post '/login', to: 'sessions#login'
 
-  # get "/subforum/posts", to: "subforums#subforum_posts"
+  # Routing logic: fallback requests for React Router.
   
   get "*path", to: "fallback#index", constraints: ->(req) { !req.xhr? && req.format.html? }
 
