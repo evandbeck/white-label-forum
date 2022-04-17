@@ -6,8 +6,15 @@ import CreateComment from './CreateComment';
 
 function Post() {
   const [commentArray, setCommentArray] = useState([])
+  const [originalComment, setOriginalComment] = useState({ name: '' })
   const [showCreateComment, setShowCreateComment] = useState(false)
   const {post_id} = useParams()
+
+  useEffect(() => {
+    fetch(`/posts/${post_id}`)
+    .then(resp => resp.json())
+    .then((r) => console.log(r.name, r.description))
+  }, []);
   
   useEffect(() => {
     fetch(`/posts/${post_id}/comments`)
@@ -51,6 +58,8 @@ function Post() {
   return (
     <div className="Post">
       Post / Comment Container
+      <p>Original Comment Here</p>
+      {/* {originalComment} */}
       {displayComments}
       <button onClick={handleShowCreateComment}>{showCreateComment ? "Close Editor" : "Create a New Comment"}</button>
       {showCreateComment ? <CreateComment post_id={post_id} commentArray={commentArray} setCommentArray={setCommentArray} setShowCreateComment={setShowCreateComment} handleNewComment={handleNewComment}/> : null}
