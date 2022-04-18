@@ -1,5 +1,5 @@
 import '../App.css'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Switch, Route } from 'react-router-dom';
 import Header from './Header';
 import NavBar from './NavBar';
@@ -13,8 +13,31 @@ import Subforum from './Subforum';
 import Post from './Post';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState('')
   const [postArray, setPostArray] = useState([])
 
+  useEffect(() => {
+    fetch('/authorized_user')
+    .then(resp => {
+      if(resp.ok) {
+        resp.json()
+        .then(user => setCurrentUser(user))
+      }
+    })
+  }, [])
+
+  function onLogin(user) {
+    setCurrentUser(user);
+  }
+
+  function onLogout() {
+    setCurrentUser('');
+  }
+
+  if (!currentUser) return <Login setCurrentUser={setCurrentUser} />
+
+
+// REFACTOR TO SUBFORUM COMPONENT
   function handleNewPost(newPost) {
     setPostArray((postArray) => [...postArray, newPost]);
   }
@@ -38,7 +61,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <NavBar />
+      <NavBar {...currentUser} onLogout={onLogout} />
       <Switch>
         <Route exact path='/'>
           {/* A Forum Component holds Select Posts, or SubforumItems */}
@@ -56,7 +79,7 @@ function App() {
           <Profile />
         </Route>
         <Route path='/login'>
-          <Login />
+          <Login onLogin={onLogin} />
         </Route>
         <Route path='/signup'>
           <Signup />

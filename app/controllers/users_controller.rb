@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :update, :destroy]
+  # before_action :set_user, only: [:show, :update, :destroy]
   skip_before_action :authorized_user, only: [:create]
 
   # GET /users
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if current_user
       render json: current_user, status: :ok
     else
-      render json: "No current user", status: :unauthorized
+      render json: {error: "No current user"}, status: :unauthorized
     end
   end
 
@@ -40,9 +40,9 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
 
     # Only allow a list of trusted parameters through.
     def user_params

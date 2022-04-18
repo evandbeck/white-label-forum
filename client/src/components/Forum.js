@@ -7,6 +7,7 @@ function Forum() {
   useEffect(() => {
     fetch('/subforums')
     .then(resp => resp.json())
+    .then(console.log())
     .then(setSubforumArray)
   }, [])
 

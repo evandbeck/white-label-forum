@@ -5,5 +5,5 @@ class User < ApplicationRecord
     has_many :comments, dependent: :destroy
     has_many :friends
 
-    validates: :username, presence: true, uniqueness: true
+    # validates :username, presence: true, uniqueness: true
 end

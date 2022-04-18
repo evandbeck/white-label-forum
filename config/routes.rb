@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :friends, only: [:index]
   resources :comments, only: [:show, :create, :update, :destroy]
   resources :posts
-  resources :users
+  resources :users, only: [:show, :create]
   resources :subforums
 
   resources :posts do
@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create, :update, :destroy] 
   end
 
-  post '/login', to: 'sessions#login'
+  post '/login', to: 'sessions#create'
 
-  get '/authorized_user', to: 'user#show'
+  get '/authorized_user', to: 'users#show'
 
   delete '/logout', to: 'sessions#destroy'
 
