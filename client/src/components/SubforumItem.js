@@ -4,7 +4,6 @@ import EditPost from './EditPost';
 
 function SubforumItem({ currentUser, id, name, description, user_id, postArray, setPostArray, handleUpdatePost, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
-  console.log(user_id)
 
   function handlePostEdit(updatedPost) {
     fetch(`/posts/${id}`, {

@@ -41,6 +41,16 @@ class CommentsController < ApplicationController
     @comment.destroy
   end
 
+  def increment_likes
+    comment = Comment.find_by(id: params[:id])
+    if comment
+      comment.update(likes: comment.likes + 1)
+      render json: comment
+    else
+      render json: @comment.errors, status: :unprocessable_entity
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     # def set_comment

@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create, :update, :destroy] 
   end
 
+  patch "/comments/:id/likes", to: "comments#increment_likes"
+
   post '/login', to: 'sessions#create'
 
   get '/authorized_user', to: 'users#show'

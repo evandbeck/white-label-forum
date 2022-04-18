@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 // import { Link } from 'react-router-dom';
 import EditComment from './EditComment';
 
-function PostItem({ currentUser, id, content, user_id, handleUpdateComment, onDelete }) {
+function PostItem({ currentUser, id, content, likes, user_id, handleUpdateComment, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
+  const [showLikes, setShowLikes] = useState(true)
 
   function handleCommentEdit(updatedComment) {
     fetch(`/comments/${id}`, {
@@ -13,7 +14,20 @@ function PostItem({ currentUser, id, content, user_id, handleUpdateComment, onDe
       },
       body: JSON.stringify(updatedComment),
     }).then(resp => resp.json())
-      .then(updatedComment => handleUpdateComment(updatedComment))
+      .then(handleUpdateComment)
+  }
+
+  function handleIncrementLikes(id) {
+    console.log(id)
+    fetch(`/comments/${id}/likes`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(resp => resp.json())
+      .then(handleUpdateComment)
+
+    setShowLikes(false)
   }
 
   function handleCommentDelete(id) {
@@ -21,7 +35,6 @@ function PostItem({ currentUser, id, content, user_id, handleUpdateComment, onDe
     fetch(`/comments/${id}`, {
       method: "DELETE",
     })
-    // .then(resp => resp.json())
     .then(onDelete(id))
   }
 
@@ -38,6 +51,12 @@ function PostItem({ currentUser, id, content, user_id, handleUpdateComment, onDe
           <button onClick={() => handleCommentDelete(id)}>DELETE</button>
         </div>
       ) : null}
+      {showLikes ? (
+        <div>
+          <button onClick={() => handleIncrementLikes(id)}>Like</button>
+        </div>
+      ) : null}
+        <p>Likes: {likes}</p>
     </div>
   )
 

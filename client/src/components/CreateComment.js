@@ -7,6 +7,7 @@ function CreateComment({ currentUser, post_id, commentArray, setCommentArray, se
     e.preventDefault();
       const newComment = {
           content: commentContent,
+          likes: 0,
           post_id: post_id,
           user_id: currentUser.id
       };

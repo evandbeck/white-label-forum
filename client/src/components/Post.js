@@ -27,6 +27,7 @@ function Post({ currentUser }) {
   };
 
   function handleUpdateComment(updatedComment) {
+    console.log(updatedComment)
     const updatedComments = commentArray.map((commentObj) => {
       if (commentObj.id === updatedComment.id) {
         return updatedComment;
