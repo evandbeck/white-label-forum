@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import PostItem from './PostItem'
 import CreateComment from './CreateComment';
 
-function Post() {
+function Post({ currentUser }) {
   const [commentArray, setCommentArray] = useState([])
   const [originalComment, setOriginalComment] = useState({ name: '' })
   const [showCreateComment, setShowCreateComment] = useState(false)
@@ -48,7 +48,8 @@ function Post() {
 
   const displayComments = commentArray.map(commentObj => (
     <PostItem 
-      key={commentObj.id} 
+      key={commentObj.id}
+      currentUser={currentUser} 
       {...commentObj} 
       handleUpdateComment={handleUpdateComment} 
       onDelete={onDelete}
@@ -62,7 +63,15 @@ function Post() {
       {/* {originalComment} */}
       {displayComments}
       <button onClick={handleShowCreateComment}>{showCreateComment ? "Close Editor" : "Create a New Comment"}</button>
-      {showCreateComment ? <CreateComment post_id={post_id} commentArray={commentArray} setCommentArray={setCommentArray} setShowCreateComment={setShowCreateComment} handleNewComment={handleNewComment}/> : null}
+      {showCreateComment ? 
+        <CreateComment 
+          currentUser={currentUser} 
+          post_id={post_id} commentArray={commentArray} 
+          setCommentArray={setCommentArray} 
+          setShowCreateComment={setShowCreateComment} 
+          handleNewComment={handleNewComment}
+        /> 
+      : null}
     </div>
   )
 }

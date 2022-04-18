@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import { Link } from 'react-router-dom';
 import EditComment from './EditComment';
 
-function PostItem({ id, content, handleUpdateComment, onDelete }) {
+function PostItem({ currentUser, id, content, user_id, handleUpdateComment, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
   function handleCommentEdit(updatedComment) {
@@ -32,8 +32,12 @@ function PostItem({ id, content, handleUpdateComment, onDelete }) {
   const displayCurrentComment = (
     <div className="PostItem">
       <p>{content}</p>
-      <button onClick={handleShowEditor}>EDIT</button>
-      <button onClick={() => handleCommentDelete(id)}>DELETE</button>
+      {currentUser.id === user_id ? (
+        <div>
+          <button onClick={handleShowEditor}>EDIT</button>
+          <button onClick={() => handleCommentDelete(id)}>DELETE</button>
+        </div>
+      ) : null}
     </div>
   )
 

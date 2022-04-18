@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 
-function CreatePost({ subforum_id, postArray, setPostArray, setShowCreatePost, handleNewPost }) {
+function CreatePost({ currentUser, subforum_id, postArray, setPostArray, setShowCreatePost, handleNewPost }) {
   const [postTitle, setPostTitle] = useState("")
   const [postDescription, setPostContent] = useState("")
 //   const [toForum, setToForum] = useState(false)
@@ -16,7 +16,7 @@ function CreatePost({ subforum_id, postArray, setPostArray, setShowCreatePost, h
           name: postTitle,
           description: postDescription,
           subforum_id: subforum_id,
-          user_id: 1
+          user_id: currentUser.id
       };
       
     fetch('/posts', {

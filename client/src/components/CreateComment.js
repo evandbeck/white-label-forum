@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function CreateComment({ post_id, commentArray, setCommentArray, setShowCreateComment, handleNewComment }) {
+function CreateComment({ currentUser, post_id, commentArray, setCommentArray, setShowCreateComment, handleNewComment }) {
   const [commentContent, setCommentContent] = useState("")
 
   function submitNewComment(e) {
@@ -8,7 +8,7 @@ function CreateComment({ post_id, commentArray, setCommentArray, setShowCreateCo
       const newComment = {
           content: commentContent,
           post_id: post_id,
-          user_id: 1
+          user_id: currentUser.id
       };
       
     fetch("/comments", {

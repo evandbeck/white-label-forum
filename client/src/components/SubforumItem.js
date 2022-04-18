@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditPost from './EditPost';
 
-function SubforumItem({ id, name, description, postArray, setPostArray, handleUpdatePost, onDelete }) {
+function SubforumItem({ currentUser, id, name, description, user_id, postArray, setPostArray, handleUpdatePost, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
+  console.log(user_id)
 
   function handlePostEdit(updatedPost) {
     fetch(`/posts/${id}`, {
@@ -33,8 +34,13 @@ function SubforumItem({ id, name, description, postArray, setPostArray, handleUp
       <div className="SubforumItem">
       <Link to={`/posts/${id}/comments`}><p className="postUsername">{name}</p></Link>
       <p className="postDescription">{description}</p>
-      <button onClick={handleShowEditor}>EDIT</button>
-      <button onClick={() => handlePostDelete(id)}>DELETE</button>
+
+      {currentUser.id === user_id ? (
+        <div>
+          <button onClick={handleShowEditor}>EDIT</button>
+          <button onClick={() => handlePostDelete(id)}>DELETE</button>
+        </div>
+      ) : null}
     </div>
     )
 
