@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function Login({ onLogin }) {
+function Login({ loginToSignup, onLogin }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
 
@@ -30,17 +31,23 @@ function Login({ onLogin }) {
   }
   return (
     <div className="Login">
-        <form className="loginForm" onSubmit={handleLogin}>
-            <div>
-                <label>Username:</label>
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+        <h1>Login</h1>
+        <form onSubmit={handleLogin}>
+            <div className="txt_field">
+                <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)}/>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div className="txt_field">
+                <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <span></span>
+                <label>Password</label>
             </div>
             <div>
-                <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} size="50"></input>
+                <button>Login</button>
             </div>
-            <div>
-                <button>Log-in!</button>
+            <div className="signup_link">
+                Not a member? <Link className="to_signup" onClick={loginToSignup} to="/signup">Signup</Link>
             </div>
         </form>
     </div>

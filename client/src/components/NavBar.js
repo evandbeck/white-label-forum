@@ -12,10 +12,8 @@ function NavBar({ username, onLogout }) {
   return (
     <div className="NavBar">
         <Link className="NavBarLink" to="/">Forum</Link>
-        <Link className="NavBarLink" to="/profile">Profile</Link>
-        <Link className="NavBarLink" to="/login">Login</Link>
-        <Link className="NavBarLink" to="/signup">Signup</Link>
-        <span>Welcome, {username}</span>
+        <span>Welcome,</span>
+        <Link className="NavBarLink" to="/profile">{username}</Link>
         <button onClick={handleLogout}>Log-out</button>
     </div>
   )

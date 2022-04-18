@@ -14,6 +14,8 @@ import Post from './Post';
 
 function App() {
   const [currentUser, setCurrentUser] = useState('')
+  const [isLogin, setIsLogin] = useState(true)
+  // REFACTOR TO SUBFORUM COMPONENT
   const [postArray, setPostArray] = useState([])
 
   useEffect(() => {
@@ -34,7 +36,12 @@ function App() {
     setCurrentUser('');
   }
 
-  if (!currentUser) return <Login setCurrentUser={setCurrentUser} />
+  function loginToSignup() {
+    setIsLogin(isLogin => !isLogin)
+  }
+
+  if (!currentUser && isLogin) return <Login setCurrentUser={setCurrentUser} loginToSignup={loginToSignup} onLogin={onLogin}/>
+  if (!currentUser && !isLogin) return <Signup setCurrentUser={setCurrentUser} loginToSignup={loginToSignup}/>
 
 
 // REFACTOR TO SUBFORUM COMPONENT
@@ -57,6 +64,7 @@ function App() {
     const deletePost = postArray.filter(postObj => postObj.id !== id)
     setPostArray(deletePost)
   }
+  // REFACTOR TO SUBFORUM COMPONENT
 
   return (
     <div className="App">
@@ -77,12 +85,6 @@ function App() {
         </Route>
         <Route path='/profile'>
           <Profile />
-        </Route>
-        <Route path='/login'>
-          <Login onLogin={onLogin} />
-        </Route>
-        <Route path='/signup'>
-          <Signup />
         </Route>
       </Switch>
       <Footer />

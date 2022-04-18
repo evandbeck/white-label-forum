@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function Signup({ setCurrentUser }) {
+function Signup({ setCurrentUser, loginToSignup }) {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -35,21 +36,28 @@ function Signup({ setCurrentUser }) {
 
   return (
     <div className="Signup">
-        <form className="signupForm" onSubmit={handleSignup}>
-            <div>
-                <label>Username:</label>
-                <input type="text" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+        <h1>Signup</h1>
+        <form onSubmit={handleSignup}>
+            <div className="txt_field">
+                <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)}/>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div className="txt_field">
+                <input type="text" required value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div className="txt_field">
+                <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <span></span>
+                <label>Password</label>
             </div>
             <div>
-                <label>Email:</label>
-                <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} size="50"></input>
+                <button>Signup</button>
             </div>
-            <div>
-                <label>Password:</label>
-                <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} size="50"></input>
-            </div>
-            <div>
-                <button>Sign-up!</button>
+            <div className="signup_link">
+                Already a member? <Link className="to_signup" onClick={loginToSignup} to="/">Login</Link>
             </div>
         </form>
     </div>
