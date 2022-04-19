@@ -59,7 +59,7 @@ function Post({ currentUser }) {
   
   return (
     <div className="Post">
-      Post / Comment Container
+      <h4>Post / Comment Container</h4>
       <p>Original Comment Here</p>
       {/* {originalComment} */}
       {displayComments}

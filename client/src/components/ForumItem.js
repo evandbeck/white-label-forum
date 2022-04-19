@@ -5,8 +5,10 @@ function Subforum({ id, name, description }) {
 
   return (
     <div className="ForumItem">
-            <Link to={`/subforums/${id}/posts`}><p className="subforumName">{name}</p></Link>
-            <p className="subforumDescription">{description}</p>
+      <ul>
+        <li className="subforumName"><Link to={`/subforums/${id}/posts`}>{name}</Link></li>
+        <li className="subforumDescription">{description}</li>
+      </ul>
     </div>
   )
 }

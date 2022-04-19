@@ -53,9 +53,9 @@ function Subforum({ currentUser, handleNewPost, handleUpdatePost, onDelete }) {
 
   return (
     <div className="Subforum">
-        Subforum / Posts Container
+        <h4>Subforum / Posts Container</h4>
         <div>
-          <button className="newPostButton" onClick={handleShowCreatePost}>{showCreatePost ? "Close Editor" : "Create a New Post"}</button>
+          <button onClick={handleShowCreatePost}>{showCreatePost ? "Close Editor" : "Create a New Post"}</button>
           {showCreatePost ? 
             <CreatePost 
               currentUser={currentUser} 
@@ -67,6 +67,7 @@ function Subforum({ currentUser, handleNewPost, handleUpdatePost, onDelete }) {
             /> 
           : null}
         </div>
+        <header><p>Test</p></header>
         {displayPosts}
     </div>
   )

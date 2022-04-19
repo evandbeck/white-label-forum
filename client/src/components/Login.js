@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import WhiteLabelForum from './WhiteLabelForum';
+
 
 function Login({ loginToSignup, onLogin }) {
   const [username, setUsername] = useState("")
@@ -30,26 +32,29 @@ function Login({ loginToSignup, onLogin }) {
     setPassword("");
   }
   return (
-    <div className="Login">
-        <h1>Login</h1>
-        <form onSubmit={handleLogin}>
-            <div className="txt_field">
-                <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)}/>
-                <span></span>
-                <label>Username</label>
-            </div>
-            <div className="txt_field">
-                <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <span></span>
-                <label>Password</label>
-            </div>
-            <div>
-                <button>Login</button>
-            </div>
-            <div className="signup_link">
-                Not a member? <Link className="to_signup" onClick={loginToSignup} to="/signup">Signup</Link>
-            </div>
-        </form>
+    <div>
+        <WhiteLabelForum/>
+        <div className="Login">
+            <h1>Login</h1>
+            <form onSubmit={handleLogin}>
+                <div className="txt_field">
+                    <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <span></span>
+                    <label>Username</label>
+                </div>
+                <div className="txt_field">
+                    <input type="password" required value={password} onChange={(e) => setPassword(e.target.value)}/>
+                    <span></span>
+                    <label>Password</label>
+                </div>
+                <div>
+                    <button>Login</button>
+                </div>
+                <div className="signup_link">
+                    Not a member? <Link className="to_signup" onClick={loginToSignup} to="/signup">Signup</Link>
+                </div>
+            </form>
+        </div>
     </div>
   )
 }

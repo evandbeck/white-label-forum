@@ -31,16 +31,18 @@ function SubforumItem({ currentUser, id, name, description, user_id, postArray, 
 
     const displayCurrentPost = (
       <div className="SubforumItem">
-      <Link to={`/posts/${id}/comments`}><p className="postUsername">{name}</p></Link>
-      <p className="postDescription">{description}</p>
+        <ul>
+          <li className="postName"><Link to={`/posts/${id}/comments`}>{name}</Link></li>
+          <li className="postDescription">{description}</li>
 
-      {currentUser.id === user_id ? (
-        <div>
-          <button onClick={handleShowEditor}>EDIT</button>
-          <button onClick={() => handlePostDelete(id)}>DELETE</button>
-        </div>
-      ) : null}
-    </div>
+          {currentUser.id === user_id ? (
+            <div>
+              <button onClick={handleShowEditor}>EDIT</button>
+              <button onClick={() => handlePostDelete(id)}>DELETE</button>
+            </div>
+          ) : null}
+        </ul>
+      </div>
     )
 
     const displayEditPost = (
