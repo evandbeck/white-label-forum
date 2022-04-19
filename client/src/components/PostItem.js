@@ -19,8 +19,6 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, user, 
 
   let joinDate = new Date(user.created_at);
 
-  console.log(joinDate);
-
   let userJoinDate = (
     joinDate.getMonth()+1+
     "/"+joinDate.getDate()+
@@ -62,7 +60,7 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, user, 
 
   function handleShowEditor() {
     setShowEditor(showEditor => !showEditor)
-    };
+  };
 
   const displayCurrentComment = (
     <div className="PostItem">

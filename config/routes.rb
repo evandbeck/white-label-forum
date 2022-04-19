@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :friends, only: [:index]
   resources :comments, only: [:show, :create, :update, :destroy]
   resources :posts
-  resources :users, only: [:show, :create]
+  resources :users, only: [:index, :show, :create]
   resources :subforums
 
   resources :posts do
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   resources :subforums do
     resources :posts, only: [:index, :create, :update, :destroy] 
   end
+
+  get "profile/:id", to: "user_profile#show"
 
   patch "/comments/:id/likes", to: "comments#increment_likes"
 
