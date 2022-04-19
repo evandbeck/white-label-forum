@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import WhiteLabelForum from './WhiteLabelForum';
 
 
 function Login({ loginToSignup, onLogin }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-
-  const [errors, setErrors] = useState([])
+  const history = useHistory();
 
   function handleLogin(e) {
     //Update DB
@@ -16,7 +15,6 @@ function Login({ loginToSignup, onLogin }) {
           username: username,
           password
       };
-      
     fetch('/login', {
         method: "POST",
         headers: {
@@ -27,10 +25,12 @@ function Login({ loginToSignup, onLogin }) {
         .then(resp => resp.json())
         .then(console.log)
         .then((user) => onLogin(user));
-
+        
+    history.push("/")
     setUsername("");
     setPassword("");
   }
+
   return (
     <div>
         <WhiteLabelForum/>

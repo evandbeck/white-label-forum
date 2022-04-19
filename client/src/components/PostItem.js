@@ -2,9 +2,30 @@ import React, { useState } from 'react'
 // import { Link } from 'react-router-dom';
 import EditComment from './EditComment';
 
-function PostItem({ currentUser, id, content, likes, user_id, created_at, handleUpdateComment, onDelete }) {
+function PostItem({ currentUser, id, content, likes, user_id, created_at, user, handleUpdateComment, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
   const [showLikes, setShowLikes] = useState(true)
+
+  let date = new Date(created_at);
+
+  let commentCreatedAt = (
+    date.getMonth()+1+
+    "/"+date.getDate()+
+    "/"+date.getFullYear()+
+    " "+date.getHours()+
+    ":"+date.getMinutes()+
+    ":"+date.getSeconds()
+    );
+
+  let joinDate = new Date(user.created_at);
+
+  console.log(joinDate);
+
+  let userJoinDate = (
+    joinDate.getMonth()+1+
+    "/"+joinDate.getDate()+
+    "/"+joinDate.getFullYear()
+    );
 
   function handleCommentEdit(updatedComment) {
     fetch(`/comments/${id}`, {
@@ -46,11 +67,18 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, handle
   const displayCurrentComment = (
     <div className="PostItem">
       <div className="CommentHeader">
-        <p>{created_at}</p>
+        <p>{commentCreatedAt}</p>
       </div>
       <div className="CommentDetails">
         <div className="UserInfo">
-          <p>User Info.</p>
+          <div className="UserUsername">
+            {user.username}
+          </div>
+          <div className="UserAvatar">
+          </div>
+          <div className="UserJoinDate">
+            Join Date: {userJoinDate}
+          </div>
         </div>
         <div className="CommentBody">
           <p>{content}</p>
