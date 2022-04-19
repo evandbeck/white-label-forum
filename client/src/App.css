@@ -26,20 +26,36 @@ body {
   color: #2691d9;
   text-decoration: none;
   margin: 10px;
+  cursor: pointer;
+}
+
+.experience:hover{
+  color: #4e4e4e;
 }
 
 .Header, .NavBar, .Forum, .Subforum, .Post, .Footer {
-  padding: 10px;
+  /* padding: 10px; */
   margin: 0px auto;
   width: 60%;
 }
 
 /* HEADER COMPONENT */
 
+.Header {
+  font-size: 120%;
+  text-align: center;
+}
+
+.Header h1 {
+  padding-bottom: 0px;
+  margin-top: 30px;
+  margin-bottom: 0px;
+}
+
 /* NAVBAR COMPONENT */
 
-.NavBarContainer {
-  padding: 5px;
+.NavBar {
+  height: 40px;
 }
 
 nav {
@@ -47,7 +63,7 @@ nav {
 }
 
 nav ul {
-  margin: 0;
+  margin-right: 25px;
   padding: 0;
   list-style: none;
 }
@@ -59,8 +75,8 @@ nav li {
   display: inline-block;
 }
 
-.NavBarContainer button {
-  width: 120%;
+.NavBar button {
+  width: 150%;
   height: 50px;
   border: 1px solid;
   background: #2691d9;
@@ -72,12 +88,17 @@ nav li {
   outline: none;
 }
 
-.NavBarLinks button:hover{
+.NavBar button:hover{
   border-color: #2691d9;
   transition: .5s;
 }
 
 /* FORUMITEM (Subforum), SUBFORUMITEM (Post) COMPONENTS */
+
+.Forum {
+  margin-top: 0px;
+  padding: 0px;
+}
 
 .ForumItem, .SubforumItem {
   color: #4e4e4e;
@@ -118,14 +139,14 @@ nav li {
 }
 
 .Subforum button {
-  width: 20%;
-  height: 50px;
+  width: 15%;
+  height: 40px;
   margin-top: 10px;
   margin-bottom: 10px;
   border: 1px solid;
   background: #2691d9;
   border-radius: 25px;
-  font-size: 18px;
+  font-size: 14px;
   color: #e9f4fb;
   font-weight: 700;
   cursor: pointer;

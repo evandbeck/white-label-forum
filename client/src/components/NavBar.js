@@ -11,15 +11,13 @@ function NavBar({ username, onLogout }) {
 
   return (
     <div className="NavBar">
-      <div className="NavBarContainer">
         <nav>
           <ul>
             <li><Link to="/">Forum</Link></li>
             <li><span>Welcome, </span><Link to="/profile">{username}</Link></li>
-            <li><button onClick={handleLogout}>Log-out</button></li>
+            <li><button onClick={handleLogout}>Logout</button></li>
           </ul>
         </nav>
-      </div>
     </div>
   )
 }
