@@ -18,13 +18,14 @@ function EditComment({ id, content, setShowEditor, handleCommentEdit }) {
   };
 
   return (
-    <div className="commentEditor">
+    <div className="PostCommentEditor">
       <form onSubmit={updateComment}>
-            <div>
-                <label>Post Content:</label>
-                <input type="text" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"></input>
+            <div className="txt_field">
+                <input type="text" required maxlength="100" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"/>
+                <span></span>
+                <label>Post Content</label>
             </div>
-            <div>
+            <div className="EditSubmit">
                 <button>Update Comment</button>
                 <button onClick={(e) => handleCancelEdit(e)}>Cancel Edit</button>
             </div>

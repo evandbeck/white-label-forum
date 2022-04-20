@@ -38,7 +38,7 @@ function Login({ loginToSignup, onLogin }) {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <div className="txt_field">
-                    <input type="text" required value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <input type="text" required maxlength="10" value={username} onChange={(e) => setUsername(e.target.value)}/>
                     <span></span>
                     <label>Username</label>
                 </div>

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import EditPost from './EditPost';
 
-function SubforumItem({ currentUser, id, name, description, user_id, postArray, setPostArray, handleUpdatePost, onDelete }) {
+function SubforumItem({ currentUser, id, name, description, user_id, created_at, user, comments, postArray, setPostArray, handleUpdatePost, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
   function handlePostEdit(updatedPost) {
@@ -29,35 +29,55 @@ function SubforumItem({ currentUser, id, name, description, user_id, postArray, 
     setShowEditor(showEditor => !showEditor)
     };
 
-    const displayCurrentPost = (
-      <div className="SubforumItem">
-        <ul>
-          <li className="postName"><Link to={`/posts/${id}/comments`}>{name}</Link></li>
-          <li className="postDescription">{description}</li>
+  let date = new Date(created_at);
 
+  let postCreatedAt = (
+    date.getMonth()+1+
+    "/"+date.getDate()+
+    "/"+date.getFullYear()+
+    " "+date.getHours()+
+    ":"+date.getMinutes()
+  );
+
+  const displayCurrentPost = (
+    <div className="SubforumItem">
+      <div className="PostContent">
+        <ul>
+          <li className="PostName"><Link className="PostNameLink" to={`/posts/${id}/comments`}>{name}</Link></li>
+          <li className="PostDescription">{description}</li>
+        </ul>
+      </div>
+      <div className="PostControls">
           {currentUser.id === user_id ? (
             <div>
               <button onClick={handleShowEditor}>EDIT</button>
               <button onClick={() => handlePostDelete(id)}>DELETE</button>
             </div>
           ) : null}
-        </ul>
       </div>
-    )
-
-    const displayEditPost = (
-      <div>
-      <EditPost 
-        id={id} 
-        name={name} 
-        description={description} 
-        postArray={postArray} 
-        setPostArray={setPostArray} 
-        setShowEditor={setShowEditor} 
-        handlePostEdit={handlePostEdit}
-      />
+      <div className="PostStats">
+          <div className="PostStatsContainer">
+              <div className="PostCreatedBy">Created by: {user.username}</div>
+              <div className="PostCreatedAt">Created at: {postCreatedAt}</div>
+              <div className="TotalComments">Total Comments: {comments.length}</div>
+          </div>
+      </div>
     </div>
-    )
+  )
+
+  const displayEditPost = (
+    <div>
+    <EditPost 
+      id={id} 
+      name={name} 
+      description={description} 
+      postArray={postArray} 
+      setPostArray={setPostArray} 
+      setShowEditor={setShowEditor} 
+      handlePostEdit={handlePostEdit}
+    />
+  </div>
+  )
 
   return (
     <div className="post">

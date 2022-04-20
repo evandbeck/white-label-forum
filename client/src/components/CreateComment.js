@@ -29,14 +29,15 @@ function CreateComment({ currentUser, post_id, commentArray, setCommentArray, se
   }
 
   return (
-    <div className="newContent">
+    <div className="CreateNew">
         <form onSubmit={submitNewComment}>
-            <div>
-                <label>Comment Content:</label>
-                <textarea type="text" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"></textarea>
+            <div className="txt_field">
+                <input type="text" required maxlength="100" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"/>
+                <span></span>
+                <label>Post Content</label>
             </div>
-            <div>
-                <button>Submit Comment</button>
+            <div className="CreateNewSubmit">
+                <button>Submit Post</button>
             </div>
         </form>
     </div>

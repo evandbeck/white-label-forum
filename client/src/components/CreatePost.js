@@ -37,17 +37,19 @@ function CreatePost({ currentUser, subforum_id, postArray, setPostArray, setShow
   }
 
   return (
-    <div className="newContent">
+    <div className="CreateNew">
         <form onSubmit={submitNewPost}>
-            <div>
-                <label>Post Title:</label>
-                <input type="text" value={postTitle} onChange={(e) => setPostTitle(e.target.value)}></input>
+            <div className="txt_field">
+                <input type="text" required maxlength="30" value={postTitle} onChange={(e) => setPostTitle(e.target.value)}/>
+                <span></span>
+                <label>Post Title</label>
             </div>
-            <div>
-                <label>Post Content:</label>
-                <textarea type="text" value={postDescription} onChange={(e) => setPostContent(e.target.value)} size="50"></textarea>
+            <div className="txt_field">
+                <input type="text" required maxlength="100" value={postDescription} onChange={(e) => setPostContent(e.target.value)} size="50"/>
+                <span></span>
+                <label>Post Content</label>
             </div>
-            <div>
+            <div className="CreateNewSubmit">
                 <button>Submit Post</button>
             </div>
         </form>

@@ -15,7 +15,7 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, user, 
     " "+date.getHours()+
     ":"+date.getMinutes()+
     ":"+date.getSeconds()
-    );
+  );
 
   let joinDate = new Date(user.created_at);
 

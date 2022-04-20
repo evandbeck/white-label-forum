@@ -40,6 +40,7 @@ function Post({ currentUser }) {
 
   function handleShowCreateComment() {
     setShowCreateComment(showCreateComment => !showCreateComment)
+    window.scrollTo(0,document.body.scrollHeight);
   };
 
   const displayComments = commentArray.map(commentObj => (
@@ -51,14 +52,12 @@ function Post({ currentUser }) {
       onDelete={onDelete}
     />
   ));
-
-  // const originalComment = ((commentArray[0] || {}).post || {});
-  // console.log(originalComment)
   
   return (
     <div className="Post">
       <h4 className="ForumDirectory">Forum | Subforum | Post</h4>
       <OriginalComment commentArray={commentArray}/>
+      <hr></hr>
       {displayComments}
       <button onClick={handleShowCreateComment}>{showCreateComment ? "Close Editor" : "Create a New Comment"}</button>
       {showCreateComment ? 

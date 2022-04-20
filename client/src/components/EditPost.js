@@ -20,17 +20,19 @@ function EditPost({ id, name, description, postArray, setPostArray, setShowEdito
     }
 
   return (
-    <div className="postEditor">
+    <div className="PostCommentEditor">
       <form onSubmit={handleSubmitEditPost}>
-            <div>
-                <label>Post Title:</label>
-                <input type="text" value={postTitle} onChange={(e) => setPostTitle(e.target.value)}></input>
+            <div className="txt_field">
+                <input type="text" required maxlength="30" value={postTitle} onChange={(e) => setPostTitle(e.target.value)}/>
+                <span></span>
+                <label>Post Title</label>
             </div>
-            <div>
-                <label>Post Content:</label>
-                <textarea type="text" value={postDescription} onChange={(e) => setPostDescription(e.target.value)} size="50"></textarea>
+            <div className="txt_field">
+                <input type="text" required maxlength="100" value={postDescription} onChange={(e) => setPostDescription(e.target.value)} size="50"/>
+                <span></span>
+                <label>Post Content</label>
             </div>
-            <div>
+            <div className="EditSubmit">
                 <button>Update Post</button>
                 <button onClick={(e) => handleCancelEdit(e)}>Cancel Edit</button>
             </div>
