@@ -189,6 +189,13 @@ nav li {
 .SubforumStatsContainer {
   min-height: 80%;
   border-left: 1px solid silver;
+  display: flex;
+  align-items: center;
+}
+
+.SubforumTotalPosts {
+  margin-left: 20px;
+  font-size: 12px;
 }
 
 .SubforumItem {

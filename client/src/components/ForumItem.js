@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Subforum({ id, name, description }) {
-
+function Subforum({ id, name, description, posts }) {
+  console.log(posts)
   return (
     <div className="ForumItem">
       <div className="SubforumImage"></div>
@@ -11,7 +11,9 @@ function Subforum({ id, name, description }) {
         <p className="SubforumDescription">{description}</p>
       </div>
       <div className="SubforumStats">
-        <div className="SubforumStatsContainer">test</div>
+        <div className="SubforumStatsContainer">
+          <div className="SubforumTotalPosts">Total Posts: {posts.length}</div>
+        </div>
       </div>
     </div>
   )
