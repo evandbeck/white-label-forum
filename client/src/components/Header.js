@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Header() {
   return (
     <div className="Header">
-      <h1>/white-label-forum</h1>
+      <Link className="HeaderLogo" to="/"><h1>/white-label-forum</h1></Link>
     </div>
   )
 }

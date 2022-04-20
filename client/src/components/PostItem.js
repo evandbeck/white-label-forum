@@ -65,7 +65,7 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, user, 
   const displayCurrentComment = (
     <div className="PostItem">
       <div className="CommentHeader">
-        <p>{commentCreatedAt}</p>
+        {commentCreatedAt}
       </div>
       <div className="CommentDetails">
         <div className="UserInfo">

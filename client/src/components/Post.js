@@ -3,24 +3,19 @@ import { useParams } from 'react-router-dom';
 // import PostEditor from './PostEditor'
 import PostItem from './PostItem'
 import CreateComment from './CreateComment';
+import OriginalComment from './OriginalComment';
 
 function Post({ currentUser }) {
   const [commentArray, setCommentArray] = useState([])
-  const [originalComment, setOriginalComment] = useState({ name: '' })
+  // const [originalComment, setOriginalComment] = useState({ name: '', description: '' })
   const [showCreateComment, setShowCreateComment] = useState(false)
   const {post_id} = useParams()
-
-  useEffect(() => {
-    fetch(`/posts/${post_id}`)
-    .then(resp => resp.json())
-    .then((r) => console.log(r.name, r.description))
-  }, []);
   
   useEffect(() => {
     fetch(`/posts/${post_id}/comments`)
     .then(resp => resp.json())
     .then(setCommentArray)
-  }, [])
+  }, [post_id])
 
   function handleNewComment(newComment) {
     setCommentArray((commentArray) => [...commentArray, newComment]);
@@ -56,12 +51,14 @@ function Post({ currentUser }) {
       onDelete={onDelete}
     />
   ));
+
+  // const originalComment = ((commentArray[0] || {}).post || {});
+  // console.log(originalComment)
   
   return (
     <div className="Post">
       <h4>Post / Comment Container</h4>
-      <p>Original Comment Here</p>
-      {/* {originalComment} */}
+      <OriginalComment commentArray={commentArray}/>
       {displayComments}
       <button onClick={handleShowCreateComment}>{showCreateComment ? "Close Editor" : "Create a New Comment"}</button>
       {showCreateComment ? 

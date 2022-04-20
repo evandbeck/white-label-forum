@@ -2,7 +2,6 @@ import React, { useState }  from 'react';
 
 function WhiteLabelForum() {
   const [showSamples, setShowSamples] = useState(false)
-  const [example, setExample] = useState()
 
   function handleSampleName() {
     setShowSamples(showSamples => !showSamples)
@@ -15,7 +14,7 @@ function WhiteLabelForum() {
   return (
     <div className="white-label-forum">
         {showSamples ? <h1>{sample}</h1> : <h1>/white-label-forum</h1>}
-        <a className="experience" onClick={handleSampleName}>see yourself here</a>
+        <p className="experience" onClick={handleSampleName}>see yourself here</p>
     </div>
   )
 }

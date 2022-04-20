@@ -24,9 +24,9 @@ function Login({ loginToSignup, onLogin }) {
     })
         .then(resp => resp.json())
         .then(console.log)
-        .then((user) => onLogin(user));
+        .then((user) => onLogin(user))
         
-    history.push("/")
+    // history.go("/forum")
     setUsername("");
     setPassword("");
   }

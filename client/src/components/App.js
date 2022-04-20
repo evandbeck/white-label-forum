@@ -58,7 +58,7 @@ function App() {
           {/* A Post Component holds Select Comments, or PostItems */}
           <Post currentUser={currentUser}/>
         </Route>
-        <Route exact path='/user/:user_id'>
+        <Route exact path='/myprofile'>
           <Profile currentUser={currentUser}/>
         </Route>
       </Switch>

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 
-function EditAboutMe({ currentUser, setShowEditor, handleProfileEdit }) {
-  const [firstName, setFirstName] = useState(currentUser.first_name)
-  const [lastName, setLastName] = useState(currentUser.last_name)
+function EditAboutMe({ firstName, setFirstName, lastName, setLastName, setShowEditor, handleProfileEdit }) {
 
   function updateProfile(e) {
     e.preventDefault();

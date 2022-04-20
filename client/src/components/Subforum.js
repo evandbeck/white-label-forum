@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import SubforumItem from './SubforumItem'
 import CreatePost from './CreatePost';
 
-function Subforum({ currentUser, handleNewPost, handleUpdatePost, onDelete }) {
+function Subforum({ currentUser }) {
   const [postArray, setPostArray] = useState([])
   const [showCreatePost, setShowCreatePost] = useState(false)
   const {subforum_id} = useParams()
@@ -13,7 +13,7 @@ function Subforum({ currentUser, handleNewPost, handleUpdatePost, onDelete }) {
     fetch(`/subforums/${subforum_id}/posts`)
     .then(resp => resp.json())
     .then(setPostArray)
-  }, [])
+  }, [subforum_id])
 
   function handleNewPost(newPost) {
     setPostArray((postArray) => [...postArray, newPost]);

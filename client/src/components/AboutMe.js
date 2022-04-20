@@ -3,17 +3,24 @@ import EditAboutMe from './EditAboutMe';
 
 function AboutMe({ currentUser }) {
   const [showEditor, setShowEditor] = useState(false)
+  const [firstName, setFirstName] = useState(currentUser.first_name)
+  const [lastName, setLastName] = useState(currentUser.last_name)
 
   function handleProfileEdit(updatedProfile) {
-    fetch(`/users/${currentUser.id}`, {
+    fetch(`/profile/${currentUser.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(updatedProfile),
     })
-    // .then(resp => resp.json())
-    // .then(handleUpdateComment)
+    .then(resp => resp.json())
+    .then(console.log)
+    .then(handleUpdateProfile)
+  }
+
+  function handleUpdateProfile(updatedProfile) {
+    console.log(updatedProfile)
   }
 
   function handleShowEditor() {
@@ -41,6 +48,10 @@ function AboutMe({ currentUser }) {
   const displayEditAboutMe = (
       <EditAboutMe 
         currentUser={currentUser} 
+        firstName={firstName}
+        setFirstName={setFirstName}
+        lastName={lastName}
+        setLastName={setLastName}
         setShowEditor={setShowEditor} 
         handleProfileEdit={handleProfileEdit}
     />

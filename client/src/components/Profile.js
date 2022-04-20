@@ -6,15 +6,14 @@ import UsersPosts from './UsersPosts';
 function Profile({ currentUser }) {
   const [user, setUser] = useState("")
   const [showUserPosts, setShowUserPosts] = useState(true)
-  const {user_id} = useParams()
-
-  console.log(JSON.stringify(user_id))
+  const {id} = useParams()
 
   useEffect(() => {
-    fetch(`/profile/${user_id}`)
+    fetch(`/profile/${currentUser.id}`)
         .then(r => r.json())
+        .then(console.log)
         .then(user => setUser(user));
-      }, [])
+      }, [currentUser.id])
 
   function handleAboutMe(){
     setShowUserPosts(true)

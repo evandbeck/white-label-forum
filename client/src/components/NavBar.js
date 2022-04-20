@@ -13,8 +13,7 @@ function NavBar({ username, onLogout }) {
     <div className="NavBar">
         <nav>
           <ul>
-            <li><Link to="/">Forum</Link></li>
-            <li><span>Welcome, </span><Link to="/user/:user_id">{username}</Link></li>
+            <li><span>Welcome, </span><Link to="/myprofile">{username}</Link></li>
             <li><button onClick={handleLogout}>Logout</button></li>
           </ul>
         </nav>

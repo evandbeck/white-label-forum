@@ -33,10 +33,9 @@ body {
   color: #4e4e4e;
 }
 
-.Header, .NavBar, .Forum, .Subforum, .Post, .Profile, .Footer {
-  /* padding: 10px; */
+.Header, .NavBar, .Footer, .Forum, .Subforum, .Post, .Profile {
   margin: 0px auto;
-  width: 60%;
+  width: 50%;
 }
 
 /* HEADER COMPONENT */
@@ -50,6 +49,11 @@ body {
   padding-bottom: 0px;
   margin-top: 30px;
   margin-bottom: 0px;
+}
+
+.HeaderLogo {
+  text-decoration: none;
+  color: black;
 }
 
 /* NAVBAR COMPONENT */
@@ -92,6 +96,31 @@ nav li {
   border-color: #2691d9;
   transition: .5s;
 }
+
+/* FOOTER COMPONENT */
+
+
+.Footer {
+  margin-top: 10px;
+  text-align: center;
+  background: #f2f2f2 none;
+  border: 1px solid black;
+}
+
+.Footer div {
+  padding: 10px;
+  
+}
+
+/* .Footer {
+  position: fixed;
+  height: 50px;
+  background-color: red;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+} */
 
 /* FORUMITEM (Subforum), SUBFORUMITEM (Post) COMPONENTS */
 
@@ -246,12 +275,8 @@ nav li {
   /* float: left; */
   /* width: 100%; */
   color: #ffffff;
-  font: normal 14px;
-  padding: 5px;
-}
-
-.CommentHeader p {
-  margin: 0;
+  font-size: 14px;
+  padding: 5px 0 5px 20px;
 }
 
 .CommentDetails {
