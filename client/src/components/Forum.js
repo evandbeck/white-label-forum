@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react'
-import ForumItem from './ForumItem'
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
+import ForumItem from './ForumItem';
 
 function Forum() {
   const [subforumArray, setSubforumArray] = useState([])
@@ -15,7 +16,7 @@ function Forum() {
 
   return (
     <div className="Forum">
-      <h4>Forum / Subforum Container</h4>
+      <h4 className="ForumDirectory">Forum</h4>
       {displaySubforums}
     </div>
   )

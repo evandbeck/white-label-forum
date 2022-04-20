@@ -53,7 +53,7 @@ function Subforum({ currentUser }) {
 
   return (
     <div className="Subforum">
-        <h4>Subforum / Posts Container</h4>
+        <h4 className="ForumDirectory">Forum | Subforum</h4>
         <div>
           <button onClick={handleShowCreatePost}>{showCreatePost ? "Close Editor" : "Create a New Post"}</button>
           {showCreatePost ? 

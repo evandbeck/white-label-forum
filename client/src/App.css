@@ -129,7 +129,69 @@ nav li {
   padding: 0px;
 }
 
-.ForumItem, .SubforumItem {
+.ForumDirectory {
+  margin-left: 10px;
+}
+
+.ForumItem {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  height: 200px;
+  /* grid-template-columns: 300px;
+  grid-template-rows: 210px 210px 80px;
+  grid-template-areas: "image" "text" "stats"; */
+  border-radius: 18px;
+  background: #FFFAFA;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+  text-align: center;
+  margin-top: 15px;
+  transition: 0.5s ease;
+  cursor: pointer;
+}
+
+.ForumItem:hover {
+  transform: scale(1.025);
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+}
+
+.SubforumImage {
+  flex: 1 1 20%;
+  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.10), #FFFAFA), url(stock-background.jpg);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background-size: cover;
+}
+
+.SubforumText {
+  flex: 1 1 50%;
+  margin: 25px 0 25px 0;
+  text-align: left;
+}
+
+.SubforumName {
+  text-decoration: none;
+  color: black;
+}
+
+.SubforumDescription {
+  font-size: 16px;
+}
+
+.SubforumStats {
+  flex: 1 1 30%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.SubforumStatsContainer {
+  min-height: 80%;
+  border-left: 1px solid silver;
+}
+
+.SubforumItem {
   color: #4e4e4e;
   background: #ffffff none;
   background-image: none;
@@ -156,7 +218,7 @@ nav li {
   color: #e9f4fb;
 }
 
-.ForumItem ul, .SubforumItem ul {
+.SubforumItem ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -207,12 +269,12 @@ nav li {
   transition: .5s;
 }
 
-.postName, .subforumName {
+.postName {
   padding-bottom: 10px;
   font-weight: bold;
 }
 
-.postDescription, .subforumDescription {
+.postDescription {
   font-size: 10px;
 }
 
@@ -276,7 +338,7 @@ nav li {
   /* width: 100%; */
   color: #ffffff;
   font-size: 14px;
-  padding: 5px 0 5px 20px;
+  padding: 5px 0 5px 15px;
 }
 
 .CommentDetails {
@@ -287,7 +349,7 @@ nav li {
 }
 
 .UserInfo {
-  padding-left: 20px;
+  padding-left: 15px;
   background: #f2f2f2 none;
   border-left: 1px solid #efefef;
   flex: 1 1 20%;  

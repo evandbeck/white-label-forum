@@ -57,7 +57,7 @@ function Post({ currentUser }) {
   
   return (
     <div className="Post">
-      <h4>Post / Comment Container</h4>
+      <h4 className="ForumDirectory">Forum | Subforum | Post</h4>
       <OriginalComment commentArray={commentArray}/>
       {displayComments}
       <button onClick={handleShowCreateComment}>{showCreateComment ? "Close Editor" : "Create a New Comment"}</button>
