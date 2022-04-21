@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import WhiteLabelForum from './WhiteLabelForum';
 
 
 function Login({ loginToSignup, onLogin }) {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
-  const history = useHistory();
+//   const history = useHistory();
 
   function handleLogin(e) {
     //Update DB
@@ -38,7 +38,7 @@ function Login({ loginToSignup, onLogin }) {
             <h1>Login</h1>
             <form onSubmit={handleLogin}>
                 <div className="txt_field">
-                    <input type="text" required maxlength="10" value={username} onChange={(e) => setUsername(e.target.value)}/>
+                    <input type="text" required maxLength="10" value={username} onChange={(e) => setUsername(e.target.value)}/>
                     <span></span>
                     <label>Username</label>
                 </div>

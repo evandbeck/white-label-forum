@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import AboutMe from './AboutMe';
 import UsersPosts from './UsersPosts';
 
 function Profile({ currentUser }) {
   const [user, setUser] = useState("")
   const [showUserPosts, setShowUserPosts] = useState(false)
-  const {id} = useParams()
+  // const {id} = useParams()
 
   useEffect(() => {
     fetch(`/profile/${currentUser.id}`)

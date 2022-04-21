@@ -3,9 +3,13 @@ import React from 'react'
 function Footer() {
   return (
     <div className="Footer">
-      <div>
-        Footer
-      </div>
+        <ul>
+          <li>Purchase</li>
+          <li>Contact Us</li>
+        </ul>
+        <ul>
+          <li>whitelabelforum.com</li>
+        </ul>
     </div>
   )
 }

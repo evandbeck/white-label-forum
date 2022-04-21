@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Subforum({ id, name, description, posts }) {
-  console.log(posts)
   return (
     <div className="ForumItem">
       <div className="SubforumImage"></div>

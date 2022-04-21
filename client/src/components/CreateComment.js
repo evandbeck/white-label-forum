@@ -32,7 +32,7 @@ function CreateComment({ currentUser, post_id, commentArray, setCommentArray, se
     <div className="CreateNew">
         <form onSubmit={submitNewComment}>
             <div className="txt_field">
-                <input type="text" required maxlength="100" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"/>
+                <input type="text" required maxLength="100" value={commentContent} onChange={(e) => setCommentContent(e.target.value)} size="50"/>
                 <span></span>
                 <label>Post Content</label>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 
 function CreatePost({ currentUser, subforum_id, postArray, setPostArray, setShowCreatePost, handleNewPost }) {
   const [postTitle, setPostTitle] = useState("")
@@ -11,13 +11,13 @@ function CreatePost({ currentUser, subforum_id, postArray, setPostArray, setShow
 //   }
 
   function submitNewPost(e) {
-      e.preventDefault();
-      const newPost = {
-          name: postTitle,
-          description: postDescription,
-          subforum_id: subforum_id,
-          user_id: currentUser.id
-      };
+    e.preventDefault();
+    const newPost = {
+        name: postTitle,
+        description: postDescription,
+        subforum_id: subforum_id,
+        user_id: currentUser.id
+    };
       
     fetch('/posts', {
         method: "POST",
@@ -40,12 +40,12 @@ function CreatePost({ currentUser, subforum_id, postArray, setPostArray, setShow
     <div className="CreateNew">
         <form onSubmit={submitNewPost}>
             <div className="txt_field">
-                <input type="text" required maxlength="30" value={postTitle} onChange={(e) => setPostTitle(e.target.value)}/>
+                <input type="text" required maxLength="30" value={postTitle} onChange={(e) => setPostTitle(e.target.value)}/>
                 <span></span>
                 <label>Post Title</label>
             </div>
             <div className="txt_field">
-                <input type="text" required maxlength="100" value={postDescription} onChange={(e) => setPostContent(e.target.value)} size="50"/>
+                <input type="text" required maxLength="100" value={postDescription} onChange={(e) => setPostContent(e.target.value)} size="50"/>
                 <span></span>
                 <label>Post Content</label>
             </div>
