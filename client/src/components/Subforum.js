@@ -68,7 +68,7 @@ function Subforum({ currentUser }) {
           : null}
         </div>
         <div className="SubforumHeader">
-          <p>Test</p>
+          <p></p>
         </div>
         {displayPosts}
     </div>

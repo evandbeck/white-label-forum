@@ -29,19 +29,19 @@ function AboutMe({ currentUser }) {
 
   const displayAboutMe = (
     <div className="AboutMe">
-      <form >
-            <div>
-                <label>First Name</label>
-                <p>{currentUser.first_name}</p>
-            </div>
-            <div>
-                <label>Last Name</label>
-                <p>{currentUser.last_name}</p>
-            </div>
-            <div className="editBtn">
-                <button onClick={handleShowEditor}>EDIT</button>
-            </div>
-        </form>
+        <div className="txt_field">
+            <label>{currentUser.first_name}</label>
+            <span></span>
+            <p>First Name</p>
+        </div>
+        <div className="txt_field">
+            <p>Last Name</p>
+            <span></span>
+            <label>{currentUser.last_name}</label>
+        </div>
+        <div className="UpdateProfile">
+            <button onClick={handleShowEditor}>Update Profile</button>
+        </div>
     </div>
   )
 

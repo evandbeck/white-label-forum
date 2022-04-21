@@ -5,7 +5,7 @@ import UsersPosts from './UsersPosts';
 
 function Profile({ currentUser }) {
   const [user, setUser] = useState("")
-  const [showUserPosts, setShowUserPosts] = useState(true)
+  const [showUserPosts, setShowUserPosts] = useState(false)
   const {id} = useParams()
 
   useEffect(() => {
@@ -16,29 +16,50 @@ function Profile({ currentUser }) {
       }, [currentUser.id])
 
   function handleAboutMe(){
-    setShowUserPosts(true)
-  }
-
-  function handleUsersPosts(){
     setShowUserPosts(false)
   }
 
+  function handleUsersPosts(){
+    setShowUserPosts(true)
+  }
+
+  let joinDate = new Date(currentUser.created_at);
+  
+  let userJoinDate = (
+    joinDate.getMonth()+1+
+    "/"+joinDate.getDate()+
+    "/"+joinDate.getFullYear()
+    );
+
   return (
     <div className="Profile">
-      <div className="ProfileUserInfo">
-        {currentUser.username}
-      </div>
+      <div className="UserProfileInfo">
+          <div className="UserProfileUsername">
+            {currentUser.username}
+          </div>
+          <div className="UserProfileAvatar">
+          </div>
+          <div className="UserProfileJoinDate">
+            Join Date: {userJoinDate}
+          </div>
+          <div className="UserProfileTotals">
+            Total Posts: {currentUser.posts.length}
+          </div>
+          <div className="UserProfileTotals">
+            Total Comments: {currentUser.comments.length}
+          </div>
+        </div>
       <div className="ProfileUserDetails">
         <div className="ProfileUserDetailsNavBar">
-          <div onClick={handleAboutMe}>
+          <div className={showUserPosts ? "" : "ProfileUserDetailsNavBarActive"} onClick={handleAboutMe}>
             About Me
           </div>
-          <div onClick={handleUsersPosts}>
-            My Posts
+          <div className={showUserPosts ? "ProfileUserDetailsNavBarActive" : ""} onClick={handleUsersPosts}>
+            My Comments
           </div>
         </div>
         <div className="ProfileUserContent">
-          {showUserPosts ? <AboutMe currentUser={currentUser}/> : <UsersPosts/>}
+          {showUserPosts ? <UsersPosts currentUser={currentUser}/> : <AboutMe currentUser={currentUser}/>}
         </div>
       </div>
     </div>

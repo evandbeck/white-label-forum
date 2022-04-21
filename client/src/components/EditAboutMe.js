@@ -18,17 +18,19 @@ function EditAboutMe({ firstName, setFirstName, lastName, setLastName, setShowEd
   };
 
   return (
-    <div>
+    <div className="AboutMeEditor">
         <form onSubmit={updateProfile}>
-            <div>
+            <div className="txt_field">
+                <input type="text" required maxlength="15" value={firstName} onChange={(e) => setFirstName(e.target.value)}/>
+                <span></span>
                 <label>First Name</label>
-                <input type="text" required value={firstName} onChange={(e) => setFirstName(e.target.value)} size="50"></input>
             </div>
-            <div>
+            <div className="txt_field">
+                <input type="text" required maxlength="15" value={lastName} onChange={(e) => setLastName(e.target.value)} size="50"/>
+                <span></span>
                 <label>Last Name</label>
-                <input type="text" required value={lastName} onChange={(e) => setLastName(e.target.value)} size="50"></input>
             </div>
-            <div>
+            <div className="EditSubmit">
                 <button>Update Profile</button>
                 <button onClick={(e) => handleCancelEdit(e)}>Cancel Edit</button>
             </div>

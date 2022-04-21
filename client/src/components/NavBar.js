@@ -11,12 +11,10 @@ function NavBar({ username, onLogout }) {
 
   return (
     <div className="NavBar">
-        <nav>
           <ul>
             <li><span>Welcome, </span><Link to="/myprofile">{username}</Link></li>
             <li><button onClick={handleLogout}>Logout</button></li>
           </ul>
-        </nav>
     </div>
   )
 }

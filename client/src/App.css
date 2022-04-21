@@ -1,7 +1,7 @@
 /* GENERAL */
 
-/* .App {
-  text-align: center;
+/* * {
+  font-family: arial;
 } */
 
 body {
@@ -9,8 +9,14 @@ body {
   padding: 0;
   background: #F5F5F5;
   height: 100vh;
-  /* overflow: hidden; */
 }
+
+.Header, .NavBar, .Footer, .Forum, .Subforum, .Post, .Profile {
+  margin: 0px auto;
+  width: 50%;
+}
+
+/* WHITE LABEL FORUM COMPONENT */
 
 .white-label-forum {
   text-align: center;
@@ -33,11 +39,6 @@ body {
   color: #4e4e4e;
 }
 
-.Header, .NavBar, .Footer, .Forum, .Subforum, .Post, .Profile {
-  margin: 0px auto;
-  width: 50%;
-}
-
 /* HEADER COMPONENT */
 
 .Header {
@@ -47,7 +48,7 @@ body {
 
 .Header h1 {
   padding-bottom: 0px;
-  margin-top: 30px;
+  margin-top: 40px;
   margin-bottom: 0px;
 }
 
@@ -59,20 +60,20 @@ body {
 /* NAVBAR COMPONENT */
 
 .NavBar {
-  height: 40px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: right;
 }
 
-nav {
-  float: right;
-}
-
-nav ul {
+.NavBar ul {
   margin-right: 25px;
+  margin-bottom: 0px;
   padding: 0;
   list-style: none;
 }
 
-nav li {
+.NavBar li {
   margin-left: 5px;
   padding: 10px;
   font-size: 18px;
@@ -99,7 +100,6 @@ nav li {
 
 /* FOOTER COMPONENT */
 
-
 .Footer {
   text-align: center;
   background: #f2f2f2 none;
@@ -125,35 +125,30 @@ nav li {
 
 .ForumDirectory {
   margin-left: 10px;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 .ForumItem {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  height: 200px;
-  /* grid-template-columns: 300px;
-  grid-template-rows: 210px 210px 80px;
-  grid-template-areas: "image" "text" "stats"; */
-  border-radius: 18px;
+  height: 150px;
   background: #FFFAFA;
-  box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
   text-align: center;
-  margin-top: 15px;
-  transition: 0.5s ease;
+  margin-top: 5px;
+  transition: 0.3s ease;
+  transform: translateX(0px);
   cursor: pointer;
 }
 
 .ForumItem:hover {
-  transform: scale(1.025);
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+  transform: translateX(10px);
 }
 
 .SubforumImage {
-  flex: 1 1 20%;
+  flex: 1 1 30%;
   background-image: linear-gradient(to right, rgba(245, 246, 252, 0.10), #FFFAFA), url(stock-background.jpg);
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
   background-size: cover;
 }
 
@@ -173,7 +168,7 @@ nav li {
 }
 
 .SubforumStats {
-  flex: 1 1 30%;
+  flex: 1 1 20%;
   padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
@@ -200,12 +195,10 @@ nav li {
 
 .SubforumHeader p {
   padding-left: 30px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   margin: 0px;
-  font-size: 18px;
-  font-weight: 500;
-  color: #e9f4fb;
+  height: 10px;
 }
 
 .SubforumItem {
@@ -427,7 +420,6 @@ nav li {
 .UserAvatar {
   width: 100px;
   height: 100px;
-  /* border: 1px solid black; */
   background-image: url(defaultprofilepicture.jpg);
 }
 
@@ -477,7 +469,6 @@ nav li {
   display: table;
   flex-wrap: nowrap;
   flex-direction: row;
-  
 }
 
 .userControls div {
@@ -516,22 +507,13 @@ nav li {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  height: 400px;
-  border: 1px solid black;
-}
-
-.ProfileUserInfo {
-  border: 1px solid black;
-  flex: 1 1 30%;
 }
 
 .ProfileUserDetails {
-  border: 1px solid black;
   flex: 1 1 70%;
 }
 
 .ProfileUserDetailsNavBar {
-  border: 1px solid black;
   text-align: center;
   display: flex;
   flex-wrap: nowrap;
@@ -540,34 +522,160 @@ nav li {
 
 .ProfileUserDetailsNavBar div {
   flex: 1 1 50%;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  border: 1px solid red;
+  padding-top: 20px;
+  padding-bottom: 20px;
   cursor: pointer;
 }
 
-.ProfileUserContent {
-  border: 1px solid black;
+.ProfileUserDetailsNavBarActive {
+  background-color:#2691d9;
+  color: white;
 }
 
-/* CREATE NEW POST/COMMENT COMPONENTS */
-/* EDIT POST/COMMENT COMPONENTS */
-
-.CreateNew, .PostCommentEditor {
-  margin: 10px;
+.UserProfileInfo {
+  background: #f2f2f2;
+  border-right: 1px solid #efefef;
 }
 
-.CreateNew form, .PostCommentEditor form {
+.UserProfileUsername {
+  padding: 17px 10px;
+  margin-bottom: 10px;
+  background-color:#2691d9;
+  font-size: 20px;
+  color: #e9f4fb;
+  font-weight: 700;
+  border-right: 1px solid white;
+  text-align: center;
+}
+
+.UserProfileAvatar {
+  width: 100px;
+  height: 100px;
+  margin: 0 30px;
+  background-image: url(defaultprofilepicture.jpg);
+}
+
+.UserProfileJoinDate {
+  text-align: left;
+  font-size: 12px;
+  margin-left: 30px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.UserProfileTotals {
+  text-align: left;
+  font-size: 12px;
+  margin-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.AboutMe {
   padding: 0 40px;
   box-sizing: border-box;
 }
 
-.CreateNewSubmit, .EditSubmit {
+.AboutMe .txt_field {
+  position: relative;
+  border-bottom: 2px solid #adadad;
+  margin: 30px 0;
+}
+
+.AboutMe p {
+  width: 100%;
+  padding: 0 5px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.AboutMe label {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  color: #adadad;
+  transform: translateY(-50%);
+  font-size: 16px;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.UsersComments {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.UsersCommentsItem {
+  width: 80%;
+  height: 80px;
+  background: #FFFAFA;
+  border: 1px solid #efefef;
+  text-align: center;
+  margin-top: 5px;
+  padding: 10px 0px;
+  transition: 0.3s ease;
+  transform: translateX(0px);
+  cursor: pointer;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.UsersCommentsItem:hover {
+  transform: translateX(10px);
+}
+
+.UsersCommentsItem div {
+  text-align: left;
+  font-size: 12px;
+  margin-left: 30px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.UsersCommentsItemContent {
+  flex: 1 1 60%;
+}
+
+.UsersCommentsItemStats {
+  flex: 1 1 40%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  border-left: 1px solid silver;
+}
+
+/* CREATE NEW POST/COMMENT COMPONENTS */
+/* EDIT POST/COMMENT COMPONENTS */
+/* EDIT ABOUT ME COMPONENT */
+
+.CreateNew, .PostCommentEditor, .AboutMeEditor {
+  margin: 10px;
+}
+
+.CreateNew form,
+.PostCommentEditor form,
+.AboutMeEditor form {
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.CreateNewSubmit, 
+.EditSubmit,
+.UpdateProfile {
   display: flex;
   justify-content: center;
 }
 
-.CreateNewSubmit button, .EditSubmit button {
+.CreateNewSubmit button,
+.EditSubmit button,
+.AboutMeEditor button,
+.UpdateProfile button {
     width: 30%;
     height: 50px;
     border: 1px solid;
@@ -581,7 +689,9 @@ nav li {
   }
   
 .CreateNewSubmit button:hover,
-.EditSubmit button:hover {
+.EditSubmit button:hover,
+.AboutMeEditor button:hover,
+.UpdateProfile button:hover {
   border-color: #2691d9;
   transition: .5s;
 }
