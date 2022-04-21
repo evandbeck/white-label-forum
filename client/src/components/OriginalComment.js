@@ -10,10 +10,10 @@ function OriginalComment({ commentArray }) {
     let originalCommentCreatedAt = (
       date.getMonth()+1+
       "/"+date.getDate()+
-      "/"+date.getFullYear()+
-      " "+date.getHours()+
-      ":"+date.getMinutes()+
-      ":"+date.getSeconds()
+      "/"+date.getFullYear()
+      // " "+date.getHours()+
+      // ":"+date.getMinutes()+
+      // ":"+date.getSeconds()
       );
   
     let joinDate = new Date(originalCommentUser.created_at);
@@ -30,7 +30,7 @@ function OriginalComment({ commentArray }) {
         Original Comment
       </div>
       <div className="CommentHeader">
-        {originalCommentCreatedAt}
+        Created at: {originalCommentCreatedAt}
       </div>
       <div className="CommentDetails">
         <div className="UserInfo">

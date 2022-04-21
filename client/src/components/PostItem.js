@@ -11,10 +11,10 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, user, 
   let commentCreatedAt = (
     date.getMonth()+1+
     "/"+date.getDate()+
-    "/"+date.getFullYear()+
-    " "+date.getHours()+
-    ":"+date.getMinutes()+
-    ":"+date.getSeconds()
+    "/"+date.getFullYear()
+    // " "+date.getHours()+
+    // ":"+date.getMinutes()+
+    // ":"+date.getSeconds()
   );
 
   let joinDate = new Date(user.created_at);
@@ -65,7 +65,7 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, user, 
   const displayCurrentComment = (
     <div className="PostItem">
       <div className="CommentHeader">
-        {commentCreatedAt}
+        Created at: {commentCreatedAt}
       </div>
       <div className="CommentDetails">
         <div className="UserInfo">
@@ -86,17 +86,17 @@ function PostItem({ currentUser, id, content, likes, user_id, created_at, user, 
         {currentUser.id === user_id ? (
           <div className="userControls">
             <div className="editBtn">
-              <button onClick={handleShowEditor}>EDIT</button>
+              <img className="EditIcon" alt="Edit Button" onClick={handleShowEditor}/>
             </div>
             <div className="deleteBtn">
-              <button onClick={() => handleCommentDelete(id)}>DELETE</button>
+              <img className="TrashIcon" alt="Delete Button" onClick={() => handleCommentDelete(id)}/>
             </div>
           </div>
         ) : null}
           <div className="likes">
             {showLikes ? (
               <div className="likeBtn">
-                <button onClick={() => handleIncrementLikes(id)}>Like</button>
+                <img className="LikeIcon" alt="Delete Button" onClick={() => handleIncrementLikes(id)}/>
               </div>
             ) : null}
               <div className="currentLikes">

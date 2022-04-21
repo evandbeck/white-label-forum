@@ -34,9 +34,7 @@ function SubforumItem({ currentUser, id, name, description, user_id, created_at,
   let postCreatedAt = (
     date.getMonth()+1+
     "/"+date.getDate()+
-    "/"+date.getFullYear()+
-    " "+date.getHours()+
-    ":"+date.getMinutes()
+    "/"+date.getFullYear()
   );
 
   const displayCurrentPost = (
@@ -49,9 +47,9 @@ function SubforumItem({ currentUser, id, name, description, user_id, created_at,
       </div>
       <div className="PostControls">
           {currentUser.id === user_id ? (
-            <div>
-              <button onClick={handleShowEditor}>EDIT</button>
-              <button onClick={() => handlePostDelete(id)}>DELETE</button>
+            <div className="PostControlsContainer">
+              <img className="EditIcon" alt="Edit Button" onClick={handleShowEditor}/>
+              <img className="TrashIcon" alt="Delete Button" onClick={() => handlePostDelete(id)}/>
             </div>
           ) : null}
       </div>

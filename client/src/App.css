@@ -16,6 +16,27 @@ body {
   width: 50%;
 }
 
+.EditIcon {
+  content: url(./edit.png);
+  transition: .5s;
+}
+
+.TrashIcon {
+  content: url(./trash.png);
+  transition: .5s;
+}
+
+.LikeIcon {
+  content: url(./like.png);
+  transition: .5s;
+}
+
+.EditIcon:hover,
+.TrashIcon:hover,
+.LikeIcon:hover {
+  transform: scale(1.25)
+}
+
 /* WHITE LABEL FORUM COMPONENT */
 
 .white-label-forum {
@@ -229,13 +250,27 @@ body {
 
 .PostControls {
   flex: 1 1 20%;
+  display: flex;
+  /* flex-wrap: nowrap;
+  flex-direction: row; */
+  padding-top: 10px;
+  padding-bottom: 10px;
+  align-items: center;
+}
+
+.PostControlsContainer {
+  flex: 1 1 20%;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: right;
 }
 
 .PostStats {
   flex: 1 1 30%;
+  display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
-  display: flex;
   align-items: center;
 }
 
@@ -386,12 +421,11 @@ body {
   border: 1px solid #43A6DF;
   clear: both;
   display: block;
-  /* float: left; */
-  /* width: 100%; */
   color: #ffffff;
   font-size: 14px;
   font-weight: bold;
   padding: 5px 0 5px 15px;
+  margin-top: 10px;
   border-bottom: 0.5px solid #efefef;
 }
 
