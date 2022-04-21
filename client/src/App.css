@@ -611,7 +611,7 @@ body {
 }
 
 .UsersCommentsItem {
-  width: 80%;
+  width: 90%;
   height: 80px;
   background: #FFFAFA;
   border: 1px solid #efefef;
@@ -630,16 +630,21 @@ body {
   transform: translateX(10px);
 }
 
-.UsersCommentsItem div {
-  text-align: left;
-  font-size: 12px;
-  margin-left: 30px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
 .UsersCommentsItemContent {
   flex: 1 1 60%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: center;
+}
+
+.UsersCommentsItemContent div {
+  text-align: left;
+  font-size: 16px;
+  margin-left: 40px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
 }
 
 .UsersCommentsItemStats {
@@ -648,6 +653,16 @@ body {
   flex-wrap: nowrap;
   flex-direction: row;
   border-left: 1px solid silver;
+  align-items: center;
+}
+
+.UsersCommentsItemStats div {
+  text-align: left;
+  font-size: 12px;
+  margin-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  align-items: center;
 }
 
 /* CREATE NEW POST/COMMENT COMPONENTS */

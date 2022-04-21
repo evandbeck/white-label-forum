@@ -8,7 +8,6 @@ function UsersPosts({ currentUser }) {
   let displayUsersComments = usersComments.map(comment => (
     <div className="UsersCommentsItem">
       <div className="UsersCommentsItemContent">
-        <div>Comment:</div>
         <div>{comment.content}</div>
       </div>
       <div className="UsersCommentsItemStats">
