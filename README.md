@@ -6,7 +6,9 @@ npm start --prefix client
 
 # Known Buglist
 - Login does not redirect to Forum page (Signup does upon account creation)
-- src/components/Forum.js:15 > TypeError: subforumArray.map is not a function (I believe this is an issue with my DB)
+- Upon account creation, user is redirected but is still unauthorized to view content, so TypeError is thrown. Must logout and login again to view.
+- Upon post creation, src/components/SubforumItem.js:58 > TypeError: Cannot read properties of undefined (reading 'username')
+  - The issue is caused by the inability to read user information upon posting. When I comment-out said user information, it works.
 # Project Template: React/Rails API
 
 ## Description
