@@ -1,3 +1,12 @@
+# Project Guidelines
+To Run:
+sudo service postgresql start
+rails s
+npm start --prefix client
+
+# Known Buglist
+- Login does not redirect to Forum page (Signup does upon account creation)
+- src/components/Forum.js:15 > TypeError: subforumArray.map is not a function (I believe this is an issue with my DB)
 # Project Template: React/Rails API
 
 ## Description
