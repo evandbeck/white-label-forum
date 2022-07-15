@@ -5,6 +5,8 @@ import EditPost from './EditPost';
 function SubforumItem({ currentUser, id, name, description, user_id, created_at, user, comments, postArray, setPostArray, handleUpdatePost, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
+  console.log(user)
+
   function handlePostEdit(updatedPost) {
     fetch(`/posts/${id}`, {
       method: "PATCH",
@@ -53,13 +55,13 @@ function SubforumItem({ currentUser, id, name, description, user_id, created_at,
             </div>
           ) : null}
       </div>
-      {/* <div className="PostStats">
+      <div className="PostStats">
           <div className="PostStatsContainer">
               <div className="PostCreatedBy">Created by: {user.username}</div>
               <div className="PostCreatedAt">Created at: {postCreatedAt}</div>
               <div className="TotalComments">Total Comments: {comments.length}</div>
           </div>
-      </div> */}
+      </div>
     </div>
   )
 

@@ -27,7 +27,6 @@ function CreatePost({ currentUser, subforum_id, postArray, setPostArray, setShow
         body: JSON.stringify(newPost),
         })
         .then((response) => response.json())
-        .then(console.log)
         
     handleNewPost(newPost);
     setPostTitle("");
