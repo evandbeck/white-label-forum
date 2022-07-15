@@ -1,8 +1,8 @@
 # Project Guidelines
 To Run:
-sudo service postgresql start
-rails s
-npm start --prefix client
+- sudo service postgresql start
+- rails s
+- npm start --prefix client
 
 # Known Buglist
 - Login does not redirect to Forum page (Signup does upon account creation)
