@@ -5,8 +5,7 @@ To Run:
 - npm start --prefix client
 
 # Known Buglist
-- Login does not redirect to Forum page (Signup does upon account creation)
-- Upon account creation, user is redirected but is still unauthorized to view content, so TypeError is thrown. Must logout and login again to view.
+- Signup does not redirect to forum page
 - OP does not show user information until a second post has been created (likely because OP information is pulled from thread array, and cannot populate until other posts exist).
 # Project Template: React/Rails API
 

@@ -46,8 +46,8 @@ function App() {
       <Header />
       <NavBar {...currentUser} onLogout={onLogout} />
       <Switch>
-        <Route exact path='/'>
-          {/* A Forum Component holds Select Posts, or SubforumItems */}
+        <Route exact path='/forum'>
+          {/* A Forum Component holds Subforums, or ForumItems */}
           <Forum />
         </Route>
         <Route exact path='/subforums/:subforum_id/posts'>

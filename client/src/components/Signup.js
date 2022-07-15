@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import WhiteLabelForum from './WhiteLabelForum';
 
 function Signup({ setCurrentUser, loginToSignup }) {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
+  const history = useHistory();
 
   function handleSignup(e) {
     //Update DB
@@ -29,7 +30,7 @@ function Signup({ setCurrentUser, loginToSignup }) {
             .then(setCurrentUser)
         }
     });
-
+    history.push("/signup")
     setUsername("");
     setEmail("");
     setPassword("");
