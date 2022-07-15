@@ -5,8 +5,6 @@ import EditPost from './EditPost';
 function SubforumItem({ currentUser, id, name, description, user_id, created_at, user, comments, postArray, setPostArray, handleUpdatePost, onDelete }) {
   const [showEditor, setShowEditor] = useState(false)
 
-  console.log(user)
-
   function handlePostEdit(updatedPost) {
     fetch(`/posts/${id}`, {
       method: "PATCH",

@@ -27,12 +27,12 @@ function CreatePost({ currentUser, subforum_id, postArray, setPostArray, setShow
         body: JSON.stringify(newPost),
         })
         .then((response) => response.json())
-        
-    handleNewPost(newPost);
-    setPostTitle("");
-    setPostContent("");
-    setShowCreatePost(false);
-    // setToForum(true);
+        .then((data) => {
+          handleNewPost(data);
+          setPostTitle("");
+          setPostContent("");
+          setShowCreatePost(false);
+         });
   }
 
   return (

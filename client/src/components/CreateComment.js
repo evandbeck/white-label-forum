@@ -20,13 +20,11 @@ function CreateComment({ currentUser, post_id, commentArray, setCommentArray, se
         body: JSON.stringify(newComment),
         })
         .then((resp) => resp.json())
-        .then(data => console.log(data));
-        // Update STATE
-        
-    handleNewComment(newComment);
-    setCommentContent("");
-    setShowCreateComment(false);
-  }
+        .then((data) => {
+          handleNewComment(data);
+          setCommentContent("");
+          setShowCreateComment(false);
+  })}
 
   return (
     <div className="CreateNew">

@@ -7,10 +7,7 @@ To Run:
 # Known Buglist
 - Login does not redirect to Forum page (Signup does upon account creation)
 - Upon account creation, user is redirected but is still unauthorized to view content, so TypeError is thrown. Must logout and login again to view.
-- Upon post creation, src/components/SubforumItem.js:58 > TypeError: Cannot read properties of undefined (reading 'username')
-  - The issue is caused by the inability to read user information upon posting. When I comment-out said user information, it works.
 - OP does not show user information until a second post has been created (likely because OP information is pulled from thread array, and cannot populate until other posts exist).
-- Upon comment creation, src/components/PostItem.js:20 > TypeError: Cannot read properties of undefined (reading 'created_at')
 # Project Template: React/Rails API
 
 ## Description
