@@ -197,14 +197,15 @@ body {
 }
 
 .SubforumImage {
-  flex: 1 1 30%;
-  background-image: linear-gradient(to right, rgba(245, 246, 252, 0.10), #FFFAFA), url(stock-background.jpg);
+  flex: 1 1 20%;
+  /* background-image: linear-gradient(to right, rgba(245, 246, 252, 0.10), #FFFAFA), url(stock-background.jpg); */
+  background: linear-gradient(to right, #2691D9, #FFFAFA);
   background-size: cover;
 }
 
 .SubforumText {
-  flex: 1 1 50%;
-  margin: 25px 0 25px 0;
+  flex: 1 1 60%;
+  margin: 25px;
   text-align: left;
 }
 

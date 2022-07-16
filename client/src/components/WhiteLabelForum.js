@@ -7,7 +7,7 @@ function WhiteLabelForum() {
     setShowSamples(showSamples => !showSamples)
   }
 
-  let samples = ["/boston-celtics"]
+  let samples = ["/fi-school-cohort-b"]
 
   const sample = samples[Math.floor(Math.random() * samples.length)];
 
