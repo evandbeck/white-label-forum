@@ -11,6 +11,7 @@ To Run:
     - Likely because OC information is pulled from the comments array[0], and cannot populate until other comments exist. Need to refactor.
 
 ## Upcoming Features
+- Update UI/Icons
 - Rich Text Editor
 - Forum Directory Navigation
 - Friends List
