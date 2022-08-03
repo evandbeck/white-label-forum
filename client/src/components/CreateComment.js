@@ -35,7 +35,7 @@ function CreateComment({ currentUser, post_id, commentArray, setCommentArray, se
                 <label>Post Content</label>
             </div>
             <div className="CreateNewSubmit">
-                <button>Submit Post</button>
+                <button>Submit Comment</button>
             </div>
         </form>
     </div>
