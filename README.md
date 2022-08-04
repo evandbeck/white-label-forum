@@ -13,5 +13,7 @@ To Run:
 ## Upcoming Features
 - Update UI/Icons
 - Rich Text Editor
+    - https://www.slatejs.org/examples/richtext
+    - https://mantine.dev/others/rte/
 - Forum Directory Navigation
 - Friends List
