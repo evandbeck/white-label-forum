@@ -26,7 +26,6 @@ To Run:
 
     - Header
     - Navbar
-    /SWITCH
     - Forum
         - ForumItem
     - Subforum
@@ -42,7 +41,6 @@ To Run:
         - AboutMe
         - EditAboutMe
         - UsersPosts
-    /SWITCH
     - Footer
 
 ## Notes
