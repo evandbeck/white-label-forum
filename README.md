@@ -17,3 +17,35 @@ To Run:
     - https://mantine.dev/others/rte/
 - Forum Directory Navigation
 - Friends List
+
+## Component Structure
+- App
+    - Login
+    - Signup
+    - WhiteLabelForum
+
+    - Header
+    - Navbar
+    /SWITCH
+    - Forum
+        - ForumItem
+    - Subforum
+        - SubforumItem
+        - CreatePost
+        - EditPost
+    - Post
+        - OriginalComment
+        - PostItem
+        - CreateComment
+        - EditComment
+    - Profile
+        - AboutMe
+        - EditAboutMe
+        - UsersPosts
+    /SWITCH
+    - Footer
+
+A Forum has ForumItems, or Subforums
+A Subforum has SubforumItems, or Posts
+A Post has PostItems, or Comments
+A Comment can be Liked
