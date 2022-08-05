@@ -45,7 +45,9 @@ To Run:
     /SWITCH
     - Footer
 
-A Forum has ForumItems, or Subforums
-A Subforum has SubforumItems, or Posts
-A Post has PostItems, or Comments
-A Comment can be Liked
+## Notes
+
+- A Forum has ForumItems, or Subforums
+- A Subforum has SubforumItems, or Posts
+- A Post has PostItems, or Comments
+- A Comment can be Liked
